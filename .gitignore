@@ -1,3 +1,17 @@
+# macOS
+.DS_Store
+
+# Data directories
+files/
+
+# Large CSVs
+hope_synthetic_full_extended.csv
+mimic_synthetic_full_extended.csv
+
+# Documents / emails
+*.eml
+*.pdf
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
