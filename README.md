@@ -13,9 +13,9 @@ https://www.frontiersin.org/journals/reproductive-health/articles/10.3389/frph.2
 ## To-Dos für Masterarbeit
 
 ### Datenvorbereitung
-- [ ] MIMIC-IV Zugang beantragen (PhysioNet Account + Training)
+- [x] MIMIC-IV Zugang beantragen (PhysioNet Account + Training)
+- [x] Daten herunterladen und in Projekt-Ordner laden
 - [ ] Relevante Tabellen identifizieren (patients, admissions, diagnoses_icd)
-- [ ] Daten herunterladen und in Projekt-Ordner laden
 - [ ] Explorative Datenanalyse: Demografische Verteilungen checken
 - [ ] Missing Data analysieren und Strategie festlegen
 - [ ] Train/Validation/Test Split definieren (zeitlich oder Patient-basiert)
