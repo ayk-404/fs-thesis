@@ -4,6 +4,7 @@
 # Data directories
 files/
 *.db
+*.db.wal
 
 # Large CSVs
 hope_synthetic_full_extended.csv
