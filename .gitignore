@@ -11,7 +11,7 @@ hope_synthetic_full_extended.csv
 mimic_synthetic_full_extended.csv
 
 # Documents / emails
-
+analyse_ergebnisse/
 *.eml
 *.pdf
 
