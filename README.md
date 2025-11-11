@@ -1,13 +1,31 @@
 # FS Thesis — Predicting diagnosis risk from demographics
 
 Short and practical repository for the master's thesis: evaluate how well tabular foundation models and baselines predict diagnosis risk using demographic features from MIMIC‑IV.
+With information Patients can provide in the waiting room.
 
-## Quick facts
+
+# Table of Contents
+- [Overview](#overview)
+
+	- [Quick Facts](#quick-facts)
+
+	- [Quick Start](#quick-start)
+
+- [Main Tasks (Short)](#main-tasks-short)
+
+- [Resources](#resources)
+
+- [Notes](#notes)
+
+
+## Overview
+
+### Quick facts
 - Goal: Measure predictive performance of foundation/tabular models (TabPFN, CatBoost, etc.) using only demographic features.
 - Data: MIMIC‑IV (local CSVs in `files/…`) — original source: https://physionet.org/content/mimiciv/3.1/
 - Notebook: `data_analysis.ipynb` — ingestion, DuckDB views and basic EDA are provided.
 
-## Quick start
+### Quick start
 1. Install minimal deps in the notebook or environment:
 	- `pip install -r requirements.txt` or in-notebook `!pip install duckdb polars pandas plotly`
 2. Open `data_analysis.ipynb` and run the cells to create DuckDB views from CSVs (creates schema `ed`, `hosp`, `icu`).
@@ -29,4 +47,6 @@ Short and practical repository for the master's thesis: evaluate how well tabula
 - For concurrent write workflows consider using PostgreSQL; DuckDB is single-writer.
 
 If you want, I can also: add a small `requirements.txt`, a one-shot script to materialize heavy CSVs into DuckDB tables, or shorten further to German — tell me which.
+
+
 
