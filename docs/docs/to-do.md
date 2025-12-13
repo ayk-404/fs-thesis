@@ -1,5 +1,8 @@
 # to-do für dokumenationszwecke
 - [x] Diagnose kategorisieren für welche man Daten hat
+- [ ] Read the notebooks
+- [ ] clean up the code in the notebooks
+- [ ] remove unnessecary files and code
 - [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung
 - [ ] Regression ausprobieren
     - [ ] lineare Regression kurze Recherche
