@@ -1,6 +1,18 @@
+ipython
+jupyterlab
+matplotlib
+mkdocs
+notebook
+numpy
+pandas
+pip
+python-dotenv
+ruff
+scikit-learn
 duckdb
 polars
 pandas
 plotly
 jupyter
 ipykernel
+-e .

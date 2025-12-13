@@ -1,52 +1,61 @@
-# FS Thesis — Predicting diagnosis risk from demographics
+# fs-thesis
 
-Short and practical repository for the master's thesis: evaluate how well tabular foundation models and baselines predict diagnosis risk using demographic features from MIMIC‑IV.
-With information Patients can provide in the waiting room.
+<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
+    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
+</a>
 
+master thesis to predict diagnosis
 
-# Table of Contents
-- [Overview](#overview)
+## Project Organization
 
-	- [Quick Facts](#quick-facts)
+```
+├── LICENSE            <- Open-source license if one is chosen
+├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
+├── README.md          <- The top-level README for developers using this project.
+├── data
+│   ├── external       <- Data from third party sources.
+│   ├── interim        <- Intermediate data that has been transformed.
+│   ├── processed      <- The final, canonical data sets for modeling.
+│   └── raw            <- The original, immutable data dump.
+│
+├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+│
+├── models             <- Trained and serialized models, model predictions, or model summaries
+│
+├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+│                         the creator's initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── pyproject.toml     <- Project configuration file with package metadata for 
+│                         fs_thesis and configuration for tools like black
+│
+├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        <- Generated graphics and figures to be used in reporting
+│
+├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+│                         generated with `pip freeze > requirements.txt`
+│
+├── setup.cfg          <- Configuration file for flake8
+│
+└── fs_thesis   <- Source code for use in this project.
+    │
+    ├── __init__.py             <- Makes fs_thesis a Python module
+    │
+    ├── config.py               <- Store useful variables and configuration
+    │
+    ├── dataset.py              <- Scripts to download or generate data
+    │
+    ├── features.py             <- Code to create features for modeling
+    │
+    ├── modeling                
+    │   ├── __init__.py 
+    │   ├── predict.py          <- Code to run model inference with trained models          
+    │   └── train.py            <- Code to train models
+    │
+    └── plots.py                <- Code to create visualizations
+```
 
-	- [Quick Start](#quick-start)
-
-- [Main Tasks (Short)](#main-tasks-short)
-
-- [Resources](#resources)
-
-- [Notes](#notes)
-
-
-## Overview
-
-### Quick facts
-- Goal: Measure predictive performance of foundation/tabular models (TabPFN, CatBoost, etc.) using only demographic features.
-- Data: MIMIC‑IV (local CSVs in `files/…`) — original source: https://physionet.org/content/mimiciv/3.1/
-- Notebook: `data_analysis.ipynb` — ingestion, DuckDB views and basic EDA are provided.
-
-### Quick start
-1. Install minimal deps in the notebook or environment:
-	- `pip install -r requirements.txt` or in-notebook `!pip install duckdb polars pandas plotly`
-2. Open `data_analysis.ipynb` and run the cells to create DuckDB views from CSVs (creates schema `ed`, `hosp`, `icu`).
-3. Use read-only DuckDB for analysis when multiple sessions are active:
-	- `duckdb.connect(database='mimic_v2.db', read_only=True)`
-
-## Main tasks (short)
-- Data prep: load CSVs, create DuckDB views/tables, harmonize schemas.
-- Feature engineering: demographic features, label mapping from ICD codes.
-- Models: baselines (logistic regression, random forest), TabPFN, tree-based models, LLM experiments.
-- Evaluation: AUC, F1, calibration, subgroup fairness analyses.
-
-## Resources
-- MIMIC docs: https://mimic.mit.edu/docs/
-- TabPFN: https://github.com/PriorLabs/TabPFN
-
-## Notes
-- Use environment variables for secrets and avoid committing data files.
-- For concurrent write workflows consider using PostgreSQL; DuckDB is single-writer.
-
-If you want, I can also: add a small `requirements.txt`, a one-shot script to materialize heavy CSVs into DuckDB tables, or shorten further to German — tell me which.
-
-
+--------
 
