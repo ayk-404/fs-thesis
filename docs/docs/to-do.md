@@ -1,5 +1,6 @@
 # to-do für dokumenationszwecke
-- [ ] Diagnose kategorisieren für welche man Daten hat
+- [x] Diagnose kategorisieren für welche man Daten hat
+- [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung
 - [ ] Regression ausprobieren
     - [ ] lineare Regression kurze Recherche
     - [ ] logistische Regression kurze Recherche
