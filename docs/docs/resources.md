@@ -15,8 +15,8 @@
 ## L
 ## M
 [MIMIC-IV Dataset](https://physionet.org/content/mimiciv/3.1/)
+[MIMIC-IV, a freely accessible electronic health record dataset](https://www.nature.com/articles/s41597-022-01899-x)
 ## N
-[Nature Article](https://www.nature.com/articles/s41597-022-01899-x)
 ## O
 ## P
 ## Q
