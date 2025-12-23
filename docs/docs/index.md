@@ -10,32 +10,38 @@ The Makefile contains the central entry points for common tasks related to this 
 
 > **Info**   
 > starte mit stupiden algo und werde nach und nach komplexer
+<details open>
+    <summary># To-Do's</summary>
 
-# to-dos
-#### data understanding
-- [x] Diagnose kategorisieren für welche man Daten hat
-- [x] erster Scatter Plot
-- [ ] remove unnessecary files and code
-- [ ] clean up the code in the notebooks  
-#### data preprocessing
-- [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
-- [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung (PC1 & PC2)
-- [ ] Korrelation analysieren, obs eine Korrelation gibt und wenn ja welche? 
-- [ ] Regression ausprobieren
-    - [ ] lineare Regression kurze Recherche
-    - [ ] logistische Regression kurze Recherche
-
-
-### Main tasks (short)
-- Data prep: load CSVs, create DuckDB views/tables, harmonize schemas.
-- Feature engineering: demographic features, label mapping from ICD codes.
-- Models: baselines (logistic regression, random forest), TabPFN, tree-based models, LLM experiments.
-- Evaluation: AUC, F1, calibration, subgroup fairness analyses.
-
-- [ ] Interaktionseffekte untersuchen
+    # to-dos
+    #### data prep
+    - [x] load csv files into duck.db
+    #### data EDA
+    - [x] Diagnose kategorisieren für welche man Daten hat
+    - [x] erster Scatter Plot
+    - [ ] remove unnessecary files and code
+    - [ ] clean up the code in the notebooks 
+    #### data preprocessing
+    - [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
+    - [ ] Interaktionseffekte untersuchen
+    - [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung (PC1 & PC2)
+    - [ ] Korrelation analysieren, obs eine Korrelation gibt und wenn ja welche? 
+    - [ ] Regression ausprobieren
+        - [ ] lineare Regression kurze Recherche
+        - [ ] logistische Regression kurze Recherche
+    #### model work
+    - [ ] random forest, TabPFN, LLM experiments (Lesen welche Model am besten passen könnte mit Begründung)
+    - [ ] Evaluation mithilfe von AUC, F1, calibration, subgroup fairness analyses
+    #### post work
+    - [ ] update LICENSE
+</details>
 
 # Optional / Ideen
 - [ ] Datenset erweitern mit zb BMI? (Macht das Sinn?)
+- [ ] GUI for entry data and app for patients
+
+# Tipps
+Oliver: Fasse die Aufenthalte zusammen, damit das aussagekräftiger wird. Und man sagen kann was zb Marta bekommt.  
 
 # Abuse and Dependence
 Thesis patients with abuse or dependence have a higher risk for certain diagnosis than patients without. To have a narrow scope I choose the 5 common drugs according to the NIDA. 
