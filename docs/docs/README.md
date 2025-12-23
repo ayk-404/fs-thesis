@@ -32,12 +32,6 @@ With information Patients can provide in the waiting room.
 3. Use read-only DuckDB for analysis when multiple sessions are active:
 	- `duckdb.connect(database='mimic_v2.db', read_only=True)`
 
-## Main tasks (short)
-- Data prep: load CSVs, create DuckDB views/tables, harmonize schemas.
-- Feature engineering: demographic features, label mapping from ICD codes.
-- Models: baselines (logistic regression, random forest), TabPFN, tree-based models, LLM experiments.
-- Evaluation: AUC, F1, calibration, subgroup fairness analyses.
-
 ## Resources
 - MIMIC docs: https://mimic.mit.edu/docs/
 - TabPFN: https://github.com/PriorLabs/TabPFN
@@ -45,8 +39,6 @@ With information Patients can provide in the waiting room.
 ## Notes
 - Use environment variables for secrets and avoid committing data files.
 - For concurrent write workflows consider using PostgreSQL; DuckDB is single-writer.
-
-If you want, I can also: add a small `requirements.txt`, a one-shot script to materialize heavy CSVs into DuckDB tables, or shorten further to German — tell me which.
 
 
 
