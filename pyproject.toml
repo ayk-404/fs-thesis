@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "fs_thesis"
 version = "0.0.1"
-description = "master thesis to predict diagnosis"
+description = "Master thesis to predict diagnosis"
 authors = [
   { name = "Andrey Kudryavtsev" },
 ]
@@ -15,18 +15,39 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License"
 ]
-requires-python = "~=3.14.0"
+# FIX: Changed from 3.14 to 3.13
+requires-python = ">=3.13"
 
+# LEAN: Core dependencies only
+dependencies = [
+    "numpy",
+    "pandas",
+    "polars>=1.0.0",
+    "scikit-learn",
+    "duckdb",
+    "matplotlib",
+    "plotly",
+    "python-dotenv",
+]
+
+# LEAN: Tools you only use during research/coding
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "ipython",
+    "jupyterlab",
+    "notebook",
+    "ipykernel",
+    "mkdocs",
+]
 
 [tool.ruff]
 line-length = 99
 src = ["fs_thesis"]
-include = ["pyproject.toml", "fs_thesis/**/*.py"]
 
 [tool.ruff.lint]
-extend-select = ["I"]  # Add import sorting
+extend-select = ["I"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["fs_thesis"]
 force-sort-within-sections = true
-
