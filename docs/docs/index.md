@@ -19,8 +19,8 @@ The Makefile contains the central entry points for common tasks related to this 
     #### data EDA
     - [x] Diagnose kategorisieren für welche man Daten hat
     - [x] erster Scatter Plot
-    - [ ] remove unnessecary files and code
-    - [ ] clean up the code in the notebooks 
+    - [x] remove unnessecary files and code
+    - [x] clean up the code in the notebooks 
     #### data preprocessing
     - [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
     - [ ] Interaktionseffekte untersuchen
