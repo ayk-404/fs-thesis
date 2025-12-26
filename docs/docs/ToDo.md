@@ -8,6 +8,7 @@
 - [x] clean up the code in the notebooks 
 #### data preprocessing
 - [x] make a one-hot-encode tutorial
+- [ ] make a PCA tutorial
 - [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
 - [ ] Interaktionseffekte untersuchen
 - [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung (PC1 & PC2)
