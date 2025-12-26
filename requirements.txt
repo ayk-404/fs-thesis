@@ -5,14 +5,11 @@ mkdocs
 notebook
 numpy
 pandas
-pip
 python-dotenv
 ruff
 scikit-learn
 duckdb
-polars
-pandas
+polars>=1.0.0
 plotly
-jupyter
 ipykernel
 -e .
