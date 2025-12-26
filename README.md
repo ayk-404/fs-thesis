@@ -39,7 +39,7 @@ master thesis to predict diagnosis
 │
 ├── setup.cfg          <- Configuration file for flake8
 │
-└── fs_thesis   <- Source code for use in this project.
+└── scripts   <- Source code for use in this project.
     │
     ├── __init__.py             <- Makes fs_thesis a Python module
     │
