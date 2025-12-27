@@ -10,6 +10,7 @@
 - [x] make a one-hot-encode tutorial
 - [x] make a PCA tutorial
 - [ ] find the right data to predict a certain illness (infection)
+- [ ] Interaktionseffekte anschauen (https://www.statology.org/how-to-spot-interaction-effects-using-python-plots/)
 - [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
 - [ ] Interaktionseffekte untersuchen
 - [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung (PC1 & PC2)
