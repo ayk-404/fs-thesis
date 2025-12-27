@@ -21,3 +21,4 @@
 - [ ] Evaluation mithilfe von AUC, F1, calibration, subgroup fairness analyses
 #### post work
 - [ ] update LICENSE
+- [ ] mkdocs einpflegen https://www.youtube.com/watch?v=DeZjkCtttss
