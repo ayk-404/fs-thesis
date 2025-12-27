@@ -1,4 +1,18 @@
 site_name: fs-thesis
-# 
 site_author: Andrey Kudryavtsev
-# 
+
+docs_dir: docs/docs
+
+theme:
+	name: material
+	language: en
+	features:
+		- navigation.top
+		- navigation.tabs
+		- content.code.copy
+
+nav:
+	- Home: README.md
+	- Getting Started: getting-started.md
+	- Thesis: thesis.md
+	- Resources: resources.md

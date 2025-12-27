@@ -11,9 +11,6 @@ The Makefile contains the central entry points for common tasks related to this 
 > **Info**   
 > starte mit stupiden algo und werde nach und nach komplexer
 
-# Optional / Ideen
-- [ ] Datenset erweitern mit zb BMI? (Macht das Sinn?)
-- [ ] GUI for entry data and app for patients
 
 # Tipps
 Oliver: Fasse die Aufenthalte zusammen, damit das aussagekräftiger wird. Und man sagen kann was zb Marta bekommt.  
