@@ -9,7 +9,14 @@
 #### data preprocessing
 - [x] make a one-hot-encode tutorial
 - [x] make a PCA tutorial
-- [ ] find the right data to predict a certain illness (infection)
+- [x] find the right data to predict a certain illness (infection)
+#### Gemini Fahrplan (https://gemini.google.com/app/7616ffc8ea6a56f7)
+- [ ] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
+- [ ] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
+- [ ] Modellierung. Implementiere TabPFN. Führe Cross-Validation durch.
+- [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
+- [ ] Thesis schreiben. Fokus auf die Interpretation: "Warum sind demographische Daten Prädiktoren für die Zeitspanne bis zur Krankheit?"
+
 - [ ] Interaktionseffekte anschauen (https://www.statology.org/how-to-spot-interaction-effects-using-python-plots/)
 - [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
 - [ ] Interaktionseffekte untersuchen

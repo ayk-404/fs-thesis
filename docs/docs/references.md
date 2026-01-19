@@ -19,6 +19,7 @@
 [MIMIC-IV Documentation](https://mimic.mit.edu/docs/iv/)
 [MIMIC-IV Video Documentation](https://mimic.mit.edu/docs/iv/tutorials/video/)
 [MIMIC-IV Demographic Table](https://www.nature.com/articles/s41597-022-01899-x/tables/2)
+[MIMIC Github](https://github.com/MIT-LCP/mimic-code)
 ## N
 ## O
 ## P
