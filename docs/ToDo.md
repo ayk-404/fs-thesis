@@ -11,7 +11,8 @@
 - [x] make a PCA tutorial
 - [x] find the right data to predict a certain illness (infection)
 #### Gemini Fahrplan (https://gemini.google.com/app/7616ffc8ea6a56f7)
-- [ ] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
+- [x] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
+- [ ] Code von SQL-Extraction dokumentieren
 - [ ] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
 - [ ] Modellierung. Implementiere TabPFN. Führe Cross-Validation durch.
 - [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
