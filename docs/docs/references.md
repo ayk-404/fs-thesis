@@ -38,5 +38,8 @@
 ## Z
 
 
+licence: https://priorlabs.ai/tabpfn-license
+
+
 
 
