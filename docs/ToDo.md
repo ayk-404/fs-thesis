@@ -12,7 +12,8 @@
 - [x] find the right data to predict a certain illness (infection)
 #### Gemini Fahrplan (https://gemini.google.com/app/7616ffc8ea6a56f7)
 - [x] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
-- [ ] Code von SQL-Extraction dokumentieren
+- [x] Code von SQL-Extraction dokumentieren
+- [ ] Lizenz von Huggingface holen und tabpfn implementieren https://docs.priorlabs.ai/how-to-access-gated-models
 - [ ] nächste Schritte von Chatty machen
 - [ ] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
 - [ ] Modellierung. Implementiere TabPFN. Führe Cross-Validation durch.
