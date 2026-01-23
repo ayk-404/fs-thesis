@@ -1,3 +1,13 @@
+### 22.01.2025
+TabPFN blockiert lokale CPU-Berechnungen bei mehr als 1.000 Samples, weil die Performance dort massiv einbricht. Da du 9.000 Samples hast und eine Lizenz besitzt, ist die lokale CPU-Nutzung der falsche Weg.
+Entscheidung Cloud oder lokale Maschine (MacBook M4). Cloud geht nicht weil DUA (Data Use Agreement)
+Gemini:
+Du hast jetzt aber ein technisches Hindernis: TabPFN hat eine Sicherheitssperre für Datensätze über 1.000 Zeilen eingebaut, weil die Rechenzeit quadratisch steigt. Da du 9.000 Trainingsdaten hast, wird dein aktueller Code sofort mit einem RuntimeError abbrechen.
+
+Wir müssen diese Sperre manuell umgehen ("override") und die Vorhersage in kleine Häppchen ("Batches") zerlegen, damit dein Mac nicht einfriert.
+
+Hier ist der vollständige, angepasste Code für Zelle 16/17. Er ersetzt deinen bisherigen Block komplett.
+
 ### 21.01.2025
 Bei der erstellung der Klassen für Target 0-2, ob ein Patient mit code I50 (Herzfehler), wieder eintrifft wurden erst die Zeiträume. Weniger 1 Jahr und Mehr als 1 Jahr, sonstiges gewählt. Dabei verteilten sich die Daten wie folgt:
 shape: (3, 2)
