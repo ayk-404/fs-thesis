@@ -3,6 +3,19 @@ Diskussion mit Oliver, Daten sind verteilt (viele Gesunde und wenige kranke). Im
 - Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
 - Veralgemeinerung nicht nur Herzfehler, sondern auch andere Diagnosen.
 - Usability, wir würde man das Modell nutzen (Storyline)
+
+### 26.01.2026
+Feedback mit Jochen
+Log über die Ergebinsse speichern.
+Neue Notebooks für XGBoost und soweiter
+Type 1 und Type 2 Error, welcher Fehler ist bevorzugt? -> Sind die Fehler für Kategorie gleich?
+verschiedene Samples für Robustheit
+-> 30 Durchläufe und Logs vergleichen
+-> verschiedene 300 sample, kommt immer das selbe raus würde man sagen dann ist das System robust
+-> Validieren mit einmal 10k Zeilen durchlaufen lassen
+-> Verteilung der Range, Logs gut darstellen. AVG und Varianz
+-> alles auf I50 Diagnose und dann als i-tüpfelchen andere Diagnosen testen.
+
 ### 22.01.2026
 TabPFN blockiert lokale CPU-Berechnungen bei mehr als 1.000 Samples, weil die Performance dort massiv einbricht. Da du 9.000 Samples hast und eine Lizenz besitzt, ist die lokale CPU-Nutzung der falsche Weg.
 Entscheidung Cloud oder lokale Maschine (MacBook M4). Cloud geht nicht weil DUA (Data Use Agreement)

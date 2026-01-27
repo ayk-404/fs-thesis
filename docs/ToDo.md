@@ -17,7 +17,10 @@
 - [x] nächste Schritte von Chatty machen
 - [x] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
 - [ ] kg, Height oder BMI implementieren als Feature
-- [ ] Robustheit bestätigen/prfen mit 30 durchläufen
+- [ ] logs einbauen
+- [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
+- [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
+- [ ] 10k durchlauf machen als referenz
 - [ ] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
 - [ ] recherche "was ist Cross-Validation" anschauen.
 - [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
