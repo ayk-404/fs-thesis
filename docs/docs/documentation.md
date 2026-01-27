@@ -1,4 +1,9 @@
-### 22.01.2025
+### 27.01.2026
+Diskussion mit Oliver, Daten sind verteilt (viele Gesunde und wenige kranke). Im Training sind die Daten balanciert also 1/3 jeder Kategorie. Das Model lernt muster und wendet diese auf den originellen Datensatz an, daher fallen auch viele gesunde in "früh" oder "spät" statt gesund. (Type2 error). 
+- Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
+- Veralgemeinerung nicht nur Herzfehler, sondern auch andere Diagnosen.
+- Usability, wir würde man das Modell nutzen (Storyline)
+### 22.01.2026
 TabPFN blockiert lokale CPU-Berechnungen bei mehr als 1.000 Samples, weil die Performance dort massiv einbricht. Da du 9.000 Samples hast und eine Lizenz besitzt, ist die lokale CPU-Nutzung der falsche Weg.
 Entscheidung Cloud oder lokale Maschine (MacBook M4). Cloud geht nicht weil DUA (Data Use Agreement)
 Gemini:
