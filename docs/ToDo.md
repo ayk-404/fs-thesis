@@ -13,12 +13,13 @@
 #### Gemini Fahrplan (https://gemini.google.com/app/7616ffc8ea6a56f7)
 - [x] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
 - [x] Code von SQL-Extraction dokumentieren
+- [x] Lizenz von Huggingface holen und tabpfn implementieren https://docs.priorlabs.ai/how-to-access-gated-models
+- [x] nächste Schritte von Chatty machen
+- [x] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
 - [ ] kg, Height oder BMI implementieren als Feature
 - [ ] Robustheit bestätigen/prfen mit 30 durchläufen
-- [ ] Lizenz von Huggingface holen und tabpfn implementieren https://docs.priorlabs.ai/how-to-access-gated-models
-- [ ] nächste Schritte von Chatty machen
-- [ ] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
-- [ ] Modellierung. Implementiere TabPFN. Führe Cross-Validation durch.
+- [ ] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
+- [ ] recherche "was ist Cross-Validation" anschauen.
 - [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
 - [ ] Thesis schreiben. Fokus auf die Interpretation: "Warum sind demographische Daten Prädiktoren für die Zeitspanne bis zur Krankheit?"
 
@@ -36,3 +37,6 @@
 #### post work
 - [ ] update LICENSE
 - [ ] mkdocs einpflegen https://www.youtube.com/watch?v=DeZjkCtttss
+
+### i-tüpfelchen
+- [ ] Veralgemeinerung nicht nur Herzfehler, sondern auch andere Diagnosen.
