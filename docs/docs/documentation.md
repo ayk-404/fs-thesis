@@ -1,3 +1,19 @@
+### 03.02.2026
+neue file: tab_pfn_v2_robustness
+füge weight hinzu aus inputevents (admission of )
+Feedback von Chatty: fokus auf hosp und ed data. Bei ICU sind es intensiv patienten, welche eine stark selektierte Gurppe (Kränkeste Patienten) ist. Also bei hosp und ed bleiben.
+Gewicht / Größe messen von der Baseline (erste Aufnahme). 
+
+BMI-Beobachtung:
+result_name	total_measurements	unique_patients
+0	BMI (kg/m2)	1901496	153725
+1	Weight (Lbs)	2145353	166872
+2	Height (Inches)	814964	148359
+Es wird der eingetragene BMI genommen, da er mehr Patienten abdeckt 153725 gegen 148359 (height) was bei einer eigenen Berechnung zu max 148359 BMI Werten führen würde.
+Da die Patienten über die Zeit mehrere Einträge haben wird für die Berechnung der Median (liegt in der Mitte von oberen 50% und unteren 50%) BMI wert benutzt = robuster.
+
+Beobachtung nach BMI implementierung (früh, Früh ist von 60% auf 70% gesprungen)
+
 ### 27.01.2026
 Diskussion mit Oliver, Daten sind verteilt (viele Gesunde und wenige kranke). Im Training sind die Daten balanciert also 1/3 jeder Kategorie. Das Model lernt muster und wendet diese auf den originellen Datensatz an, daher fallen auch viele gesunde in "früh" oder "spät" statt gesund. (Type2 error). 
 - Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
