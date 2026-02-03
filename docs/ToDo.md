@@ -17,6 +17,7 @@
 - [x] nächste Schritte von Chatty machen
 - [x] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
 - [ ] kg, Height oder BMI implementieren als Feature
+- [ ] Features aufschlüsseln
 - [ ] logs einbauen
 - [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
 - [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
