@@ -1,15 +1,21 @@
-ipython
-jupyterlab
-matplotlib
-mkdocs
-notebook
+# Core deps
 numpy
 pandas
-python-dotenv
-ruff
+pyarrow
+polars>=1.0.0
 scikit-learn
 duckdb
-polars>=1.0.0
+matplotlib
 plotly
+python-dotenv
+
+# Dev / notebooks
+ipython
 ipykernel
+jupyterlab
+notebook
+mkdocs
+ruff
+
+# Project
 -e .
