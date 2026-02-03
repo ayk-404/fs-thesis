@@ -16,7 +16,7 @@
 - [x] Lizenz von Huggingface holen und tabpfn implementieren https://docs.priorlabs.ai/how-to-access-gated-models
 - [x] nächste Schritte von Chatty machen
 - [x] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
-- [ ] kg, Height oder BMI implementieren als Feature
+- [x] kg, Height oder BMI implementieren als Feature
 - [ ] Features aufschlüsseln
 - [ ] logs einbauen
 - [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
