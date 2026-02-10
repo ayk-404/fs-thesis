@@ -18,7 +18,8 @@
 - [x] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
 - [x] kg, Height oder BMI implementieren als Feature
 - [x] Features aufschlüsseln
-- [ ] logs einbauen
+- [x] logs einbauen
+- [ ] code durchgehen und optimieren, manuell
 - [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
 - [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
 - [ ] 10k durchlauf machen als referenz

@@ -1,3 +1,36 @@
+### 10.02.2026
+Feature Importance vs. Risikoverteilung (Das Gender-Paradoxon):
+Obwohl in den Plots (Balkendiagramm) klare Unterschiede im Risiko zwischen Männern und Frauen zu sehen sind, zeigt die Feature Importance für "gender" oft den Wert 0.
+Erklärung:
+- **Korrelation (Bild):** Frauen haben im Datensatz ein anderes durchschnittliches Risiko, aber das liegt oft an Drittfaktoren (z.B. sind sie im Schnitt älter).
+- **Kausalität/Wichtigkeit (CSV):** Das Modell erkennt, dass "Geschlecht" keine *eigene* Vorhersagekraft bringt, wenn man Alter und BMI schon kennt. Es ignoriert das Geschlecht also zugunsten der "echten" Treiber.
+
+Das ist ein Zeichen dafür, dass das Modell robust ist und sich nicht von Schein-Korrelationen täuschen lässt.
+
+Robustness Testing:
+Implementierung eines Loops (30 Iterationen), der bei jedem Durchlauf:
+1. Ein neues Trainings-Subset zieht (Sampling Variation).
+2. Ein neues Modell trainiert.
+3. Feature Importance berechnet.
+4. Metriken (F1, Accuracy, Precision, Recall) speichert.
+Ergebnis: Saubere Trennung zwischen Test-Läufen (run_test) und echten Experimenten, automatische Ablage der Reports nach Zeitstempel und Generierung von PNGs pro Run.
+
+Tech-Note: Feature Importance Strategie (Single vs. Loop):
+Eine einzelne Analyse nutzt `n_repeats=10`, während der Loop nur `n_repeats=2` nutzt. Das ist statistisch vergleichbar und im Loop sogar überlegen:
+- **Single Run:** 1 Modell * 10 Repeats = 10 Messpunkte (Fokus: stabilität dieses einen Modells).
+- **Loop:** 30 Modelle * 2 Repeats = 60 Messpunkte (Fokus: Globale Stabilität über verschiedene Trainings-Sets).
+Der Loop ist also trotz kleinerer Zahl pro Run insgesamt aussagekräftiger ("Law of Large Numbers").
+
+> **Warum das Gesetz der großen Zahlen hier wirkt:**
+> Das Gesetz besagt, dass sich der Durchschnitt einer Stichprobe mit wachsender Größe ($N=30$) dem wahren Erwartungswert annähert. 
+> Bei einem *einzelnen* Run kann eine hohe Feature Importance Zufall sein (z.B. weil der Random Seed gerade diese Samples gewählt hat).
+> Durch die Wiederholung über 30 unabhängige Trainings-Sets mitteln sich diese Zufallsschwankungen ("Rauschen") heraus. Was übrig bleibt, ist das **echte Signal**: Wenn ein Feature über 30 verschiedene Szenarien hinweg wichtig bleibt, dann ist es *wirklich* universell relevant und kein Artefakt eines einzelnen Trainingsvorgangs.
+
+Design-Entscheidung: Fixes Validierungs-Set in den Loops:
+Wir variieren bewusst nur das Trainings-Set (Resampling), während das Validierungs-Set (`X_val_robust`) für alle 30 Runs identisch bleibt.
+- Grund: Wir wollen die Varianz des Modells messen, nicht die Varianz der Testdaten.
+- Effekt: Wenn sich Metriken ändern, liegt es eindeutig am Training/Modell, nicht daran, dass ein Test-Set zufällig "leichter" oder "schwerer" war. Das sichert die Vergleichbarkeit ("Ceteris paribus").
+
 ### 03.02.2026
 neue file: tab_pfn_v2_robustness
 füge weight hinzu aus inputevents (admission of )
