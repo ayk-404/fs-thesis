@@ -1,3 +1,69 @@
+### 11.02.2026
+**Robustness & Visualisierung (Master-Thesis Level)**
+
+1.  **Experiment-Design:**
+    -   **Fixes Validierungs-Set:** Wir variieren nur das Training (30 Runs), nicht das Test-Set. Nur so messen wir echte Modell-Varianz ("Ceteris paribus").
+    -   **Loop-Update:** Speicherung der Risk-Scores pro Subgruppe (z.B. `risk_bmi_obese`) in der CSV, um nicht nur *dass* ein Feature wichtig ist zu messen, sondern auch *in welche Richtung* es wirkt (medizinischer Plausibilitäts-Check).
+
+2.  **Visualisierung:**
+    -   **Bar-Charts mit Error-Bars:** Standard für wissenschaftliche Arbeiten (Mean ± StdDev). Ersetzt reine Boxplots.
+    -   **Swarm-Plots:** Transparente Einzelpunkte über den Balken zeigen die wahre Verteilung.
+    -   **Prozent-Achsen:** Umstellung auf `.1%` für bessere Lesbarkeit.
+
+3.  **Interpretation Feature Importance:**
+    -   **Balkenhöhe:** "Mean Decrease Accuracy" (Wirkstärke).
+    -   **Schwarze Linie (Error Bar):** Unsicherheit. Lang = Feature ist nur zufällig wichtig (Rauschen).
+    -   **Negative Werte:** Feature schadet dem Modell (Overfitting auf Noise) -> Kandidat für Rauswurf.
+
+### 10.02.2026
+Feature Importance vs. Risikoverteilung (Das Gender-Paradoxon):
+Obwohl in den Plots (Balkendiagramm) klare Unterschiede im Risiko zwischen Männern und Frauen zu sehen sind, zeigt die Feature Importance für "gender" oft den Wert 0.
+Erklärung:
+- **Korrelation (Bild):** Frauen haben im Datensatz ein anderes durchschnittliches Risiko, aber das liegt oft an Drittfaktoren (z.B. sind sie im Schnitt älter).
+- **Kausalität/Wichtigkeit (CSV):** Das Modell erkennt, dass "Geschlecht" keine *eigene* Vorhersagekraft bringt, wenn man Alter und BMI schon kennt. Es ignoriert das Geschlecht also zugunsten der "echten" Treiber.
+
+Das ist ein Zeichen dafür, dass das Modell robust ist und sich nicht von Schein-Korrelationen täuschen lässt.
+
+Robustness Testing:
+Implementierung eines Loops (30 Iterationen), der bei jedem Durchlauf:
+1. Ein neues Trainings-Subset zieht (Sampling Variation).
+2. Ein neues Modell trainiert.
+3. Feature Importance berechnet.
+4. Metriken (F1, Accuracy, Precision, Recall) speichert.
+Ergebnis: Saubere Trennung zwischen Test-Läufen (run_test) und echten Experimenten, automatische Ablage der Reports nach Zeitstempel und Generierung von PNGs pro Run.
+
+Tech-Note: Feature Importance Strategie (Single vs. Loop):
+Eine einzelne Analyse nutzt `n_repeats=10`, während der Loop nur `n_repeats=2` nutzt. Das ist statistisch vergleichbar und im Loop sogar überlegen:
+- **Single Run:** 1 Modell * 10 Repeats = 10 Messpunkte (Fokus: stabilität dieses einen Modells).
+- **Loop:** 30 Modelle * 2 Repeats = 60 Messpunkte (Fokus: Globale Stabilität über verschiedene Trainings-Sets).
+Der Loop ist also trotz kleinerer Zahl pro Run insgesamt aussagekräftiger ("Law of Large Numbers").
+
+> **Warum das Gesetz der großen Zahlen hier wirkt:**
+> Das Gesetz besagt, dass sich der Durchschnitt einer Stichprobe mit wachsender Größe ($N=30$) dem wahren Erwartungswert annähert. 
+> Bei einem *einzelnen* Run kann eine hohe Feature Importance Zufall sein (z.B. weil der Random Seed gerade diese Samples gewählt hat).
+> Durch die Wiederholung über 30 unabhängige Trainings-Sets mitteln sich diese Zufallsschwankungen ("Rauschen") heraus. Was übrig bleibt, ist das **echte Signal**: Wenn ein Feature über 30 verschiedene Szenarien hinweg wichtig bleibt, dann ist es *wirklich* universell relevant und kein Artefakt eines einzelnen Trainingsvorgangs.
+
+Design-Entscheidung: Fixes Validierungs-Set in den Loops:
+Wir variieren bewusst nur das Trainings-Set (Resampling), während das Validierungs-Set (`X_val_robust`) für alle 30 Runs identisch bleibt.
+- Grund: Wir wollen die Varianz des Modells messen, nicht die Varianz der Testdaten.
+- Effekt: Wenn sich Metriken ändern, liegt es eindeutig am Training/Modell, nicht daran, dass ein Test-Set zufällig "leichter" oder "schwerer" war. Das sichert die Vergleichbarkeit ("Ceteris paribus").
+
+### 03.02.2026
+neue file: tab_pfn_v2_robustness
+füge weight hinzu aus inputevents (admission of )
+Feedback von Chatty: fokus auf hosp und ed data. Bei ICU sind es intensiv patienten, welche eine stark selektierte Gurppe (Kränkeste Patienten) ist. Also bei hosp und ed bleiben.
+Gewicht / Größe messen von der Baseline (erste Aufnahme). 
+
+BMI-Beobachtung:
+result_name	total_measurements	unique_patients
+0	BMI (kg/m2)	1901496	153725
+1	Weight (Lbs)	2145353	166872
+2	Height (Inches)	814964	148359
+Es wird der eingetragene BMI genommen, da er mehr Patienten abdeckt 153725 gegen 148359 (height) was bei einer eigenen Berechnung zu max 148359 BMI Werten führen würde.
+Da die Patienten über die Zeit mehrere Einträge haben wird für die Berechnung der Median (liegt in der Mitte von oberen 50% und unteren 50%) BMI wert benutzt = robuster.
+
+Beobachtung nach BMI implementierung (früh, Früh ist von 60% auf 70% gesprungen)
+
 ### 27.01.2026
 Diskussion mit Oliver, Daten sind verteilt (viele Gesunde und wenige kranke). Im Training sind die Daten balanciert also 1/3 jeder Kategorie. Das Model lernt muster und wendet diese auf den originellen Datensatz an, daher fallen auch viele gesunde in "früh" oder "spät" statt gesund. (Type2 error). 
 - Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
