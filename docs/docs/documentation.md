@@ -1,3 +1,20 @@
+### 11.02.2026
+**Robustness & Visualisierung (Master-Thesis Level)**
+
+1.  **Experiment-Design:**
+    -   **Fixes Validierungs-Set:** Wir variieren nur das Training (30 Runs), nicht das Test-Set. Nur so messen wir echte Modell-Varianz ("Ceteris paribus").
+    -   **Loop-Update:** Speicherung der Risk-Scores pro Subgruppe (z.B. `risk_bmi_obese`) in der CSV, um nicht nur *dass* ein Feature wichtig ist zu messen, sondern auch *in welche Richtung* es wirkt (medizinischer Plausibilitäts-Check).
+
+2.  **Visualisierung:**
+    -   **Bar-Charts mit Error-Bars:** Standard für wissenschaftliche Arbeiten (Mean ± StdDev). Ersetzt reine Boxplots.
+    -   **Swarm-Plots:** Transparente Einzelpunkte über den Balken zeigen die wahre Verteilung.
+    -   **Prozent-Achsen:** Umstellung auf `.1%` für bessere Lesbarkeit.
+
+3.  **Interpretation Feature Importance:**
+    -   **Balkenhöhe:** "Mean Decrease Accuracy" (Wirkstärke).
+    -   **Schwarze Linie (Error Bar):** Unsicherheit. Lang = Feature ist nur zufällig wichtig (Rauschen).
+    -   **Negative Werte:** Feature schadet dem Modell (Overfitting auf Noise) -> Kandidat für Rauswurf.
+
 ### 10.02.2026
 Feature Importance vs. Risikoverteilung (Das Gender-Paradoxon):
 Obwohl in den Plots (Balkendiagramm) klare Unterschiede im Risiko zwischen Männern und Frauen zu sehen sind, zeigt die Feature Importance für "gender" oft den Wert 0.

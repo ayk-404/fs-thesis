@@ -19,6 +19,7 @@
 - [x] kg, Height oder BMI implementieren als Feature
 - [x] Features aufschlüsseln
 - [x] logs einbauen
+- [ ] negatives feature verschlechtert das modell. auswerten welches immer negativ ist und dass mal weglassen danaach vergleichen mit anderen durchgängen
 - [ ] code durchgehen und optimieren, manuell
 - [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
 - [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
