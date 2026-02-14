@@ -19,30 +19,29 @@
 - [x] kg, Height oder BMI implementieren als Feature
 - [x] Features aufschlüsseln
 - [x] logs einbauen
-- [ ] negatives feature verschlechtert das modell. auswerten welches immer negativ ist und dass mal weglassen danaach vergleichen mit anderen durchgängen
-- [ ] code durchgehen und optimieren, manuell
-- [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
-- [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
-- [ ] 10k durchlauf machen als referenz
-- [ ] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
-- [ ] recherche "was ist Cross-Validation" anschauen.
-- [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
-- [ ] Thesis schreiben. Fokus auf die Interpretation: "Warum sind demographische Daten Prädiktoren für die Zeitspanne bis zur Krankheit?"
+- [x] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
+- [x] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
+- [x] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
 
-- [ ] Interaktionseffekte anschauen (https://www.statology.org/how-to-spot-interaction-effects-using-python-plots/)
-- [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
-- [ ] Interaktionseffekte untersuchen
-- [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung (PC1 & PC2)
-- [ ] Korrelation analysieren, obs eine Korrelation gibt und wenn ja welche? 
-- [ ] Regression ausprobieren
-    - [ ] lineare Regression kurze Recherche
-    - [ ] logistische Regression kurze Recherche
-#### model work
-- [ ] random forest, TabPFN, LLM experiments (Lesen welche Model am besten passen könnte mit Begründung)
-- [ ] Evaluation mithilfe von AUC, F1, calibration, subgroup fairness analyses
+- [ ] recherche "was ist Cross-Validation" anschauen.
+- [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
+- [ ] checken ob der patient als gestorben trz "gesund" ist
+
+- [ ] manuell code durchgehen und optimieren
+- [ ] roc-auc analyse einbauen
+    - [ ] Evaluation mithilfe von AUC, F1, calibration, subgroup fairness analyses
+- [ ] daten modular aufbauen
+- [ ] benchmark aufbauen
+    - [ ] xgboost, random forest, TabPFN, LLM experiments (Lesen welche Model am besten passen könnte mit Begründung)
+
+- [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
+
 #### post work
+- [ ] Thesis schreiben. Fokus auf die Interpretation: "Warum sind demographische Daten Prädiktoren für die Zeitspanne bis zur Krankheit?"
 - [ ] update LICENSE
 - [ ] mkdocs einpflegen https://www.youtube.com/watch?v=DeZjkCtttss
+- [ ] Interaktionseffekte anschauen (https://www.statology.org/how-to-spot-interaction-effects-using-python-plots/)
 
 ### i-tüpfelchen
 - [ ] Veralgemeinerung nicht nur Herzfehler, sondern auch andere Diagnosen.
+- [ ] negatives feature verschlechtert das modell. auswerten welches immer negativ ist und dass mal weglassen danaach vergleichen mit anderen durchgängen
