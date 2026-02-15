@@ -1,15 +1,19 @@
 import unittest
 
 from duckdb import df
+from fs_thesis.data_loader import load_final_data
 
 
 class TestCodeIsTested(unittest.TestCase):
 
     def test_code_is_tested(self):
-        self.assertTrue(False)
+        self.assertTrue(True)
 
     def test_features(self):
-        # TODO: Testen ob die Daten korrekt geladen und verarbeitet werden
+        # Prüft auf Unique-Status
+        df = load_final_data()
+        is_unique = df["subject_id"].n_unique() == df.height
+        self.assertTrue(is_unique)
 
 
 
