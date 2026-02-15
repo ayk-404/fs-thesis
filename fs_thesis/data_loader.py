@@ -84,36 +84,54 @@ def load_event_data():
                    GROUP BY d.subject_id""")
     return df_event
 
+def load_bmi():
+    df_bmi = sql("""
+    SELECT 
+        subject_id,
+        MEDIAN(CAST(result_value AS FLOAT)) as bmi
+    FROM hosp.omr
+    WHERE result_name = 'BMI (kg/m2)'
+    -- Einfache Bereinigung: Nur plausible Werte (z.B. 10 bis 100)
+    AND TRY_CAST(result_value AS FLOAT) BETWEEN 10 AND 100
+    GROUP BY subject_id""")
+    return df_bmi
+
 def load_final_data():
     df_baseline = load_baseline_data()
     df_event = load_event_data()
+    df_bmi = load_bmi()
 
     df_final = (
-    df_baseline.join(df_event, on="subject_id", how="left")
-    # 1. Zeitdifferenzen und Event-Indikator berechnen
-    .with_columns([
-        ((pl.col("event_time") - pl.col("t0_time")).dt.total_days()).alias("t_event"),
-        ((pl.col("dod") - pl.col("t0_time")).dt.total_days()).alias("t_death"),
-        pl.col("event_time").is_not_null().cast(pl.Int32).alias("event_occurred")
-    ])
-    # 2. Duration festlegen (Priorität: Event > Tod > Fallback) und Clip
-    .with_columns(
-        pl.coalesce([
-            pl.col("t_event"),
-            pl.col("t_death"),
-            pl.lit(2000)
+        df_baseline.join(df_event, on="subject_id", how="left")
+        # 1. Zeitdifferenzen und Event-Indikator berechnen
+        .with_columns([
+            ((pl.col("event_time") - pl.col("t0_time")).dt.total_days()).alias("t_event"),
+            ((pl.col("dod") - pl.col("t0_time")).dt.total_days()).alias("t_death"),
+            pl.col("event_time").is_not_null().cast(pl.Int32).alias("event_occurred")
         ])
-        .clip(lower_bound=0)
-        .alias("duration")
+        # 2. Duration festlegen (Priorität: Event > Tod > Fallback) und Clip
+        .with_columns(
+            pl.coalesce([
+                pl.col("t_event"),
+                pl.col("t_death"),
+                pl.lit(2000)
+            ])
+            .clip(lower_bound=0)
+            .alias("duration")
+        )
+        # 3. Zielvariable (Target) für TabPFN definieren
+        .with_columns(
+            pl.when((pl.col("event_occurred") == 1) & (pl.col("duration") <= 365))
+            .then(0)      # Klasse 0: Früher Ausbruch (< 1 Jahr)
+            .when((pl.col("event_occurred") == 1) & (pl.col("duration") > 365))
+            .then(1)      # Klasse 1: Später Ausbruch (> 1 Jahr)
+            .otherwise(2) # Klasse 2: Zensiert / Gesund / Kein Event
+            .alias("target")
+        )
     )
-    # 3. Zielvariable (Target) für TabPFN definieren
-    .with_columns(
-        pl.when((pl.col("event_occurred") == 1) & (pl.col("duration") <= 365))
-        .then(0)     # Klasse 0: Früher Ausbruch (< 1 Jahr)
-        .when((pl.col("event_occurred") == 1) & (pl.col("duration") > 365))
-        .then(1)     # Klasse 1: Später Ausbruch (> 1 Jahr)
-        .otherwise(2) # Klasse 2: Zensiert / Gesund / Kein Event
-        .alias("target")
-    )
-)
+    df_final=df_final.join(
+        df_bmi, 
+        on="subject_id", 
+        how="left")
+    
     return df_final
