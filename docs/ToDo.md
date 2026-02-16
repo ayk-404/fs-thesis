@@ -22,7 +22,8 @@
 - [x] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
 - [x] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
 - [x] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
-- [ ] TabPFN auf msp und 9000 balanced sample prüfen statt cpu und kline sample (bwz vielleicht beides und dann verlgeichen)
+- [x] TabPFN auf msp und 9000 balanced sample prüfen statt cpu und kline sample (bwz vielleicht beides und dann verlgeichen)
+- [ ] Loop aufbauen
 - [ ] SHAP nutzen https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/
 - [ ] recherche "was ist Cross-Validation" anschauen.
 - [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
