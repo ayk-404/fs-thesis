@@ -1,4 +1,33 @@
-### 11.02.2026
+## 16.02.2026
+
+### Methodik & Modell-Verständnis
+
+**F1-Score vs. ROC-AUC**
+*   **Erkenntnis:** Der F1-Score misst die Balance zwischen Sicherheit und Fehlalarmen, während ROC-AUC bewertet, wie gut ein Algorithmus das Krankheitsbild grundsätzlich im Vergleich zu einem anderen versteht (Trennschärfe).
+*   **Kontext der Thesis:**
+    *   **Recall (Sensitivität) als Priorität:** Bei Herzinsuffizienz darf kein Kranker übersehen werden (False Negative wiegt schwerer als False Positive).
+    *   **ROC-AUC:** Belegt die ausreichende Trennschärfe des "Patienten-Modells" (nur anamnestische/demografische Daten) im Vergleich zu klinischen Modellen.
+    *   **F1-Score:** Zeigt die Balance, um eine Flut an Fehlalarmen zu vermeiden (Gesunde fälschlich als krank klassifiziert).
+
+**Wissenschaftliche Begründung (Argumentation)**
+*   **Barrierefreiheit:** Fokus auf Patient-Reported Outcomes (Anamnese, Demografie) senkt die Hürde für frühe Risikoeinschätzung.
+*   **Ressourceneffizienz:** Fungiert als Triage-System, um Hochrisikopatienten gezielt zur Diagnostik zu leiten.
+*   **Klinische Plausibilität (SHAP):** Widerlegt den "Alte-Leute-Bias". SHAP zeigt, dass nicht das Alter allein, sondern die Kombination (z.B. mit BMI, Rauchstatus) entscheidend ist.
+
+**Projekt-Fortschritt: Modularisierung**
+Das Notebook `TabPFN_v2` wurde modular für Daten und Preprocessing umgebaut, um die Wiederverwendbarkeit des Codes zu gewährleisten.
+
+### Besonderheiten an TabPFN (Hintergrund)
+
+1.  **Kein klassisches Training:** Keine Gradientenoptimierung (Backpropagation); die Gewichte ändern sich nicht.
+2.  **Transformer-Architektur:** TabPFN betrachtet den gesamten Trainingsdatensatz (Features + Labels) als einen "Prompt" (ähnlich GPT). Es nutzt Self-Attention-Mechanismen, um Beziehungen im Single Forward Pass zu verstehen.
+3.  **Approximierte Bayes-Inferenz:** Berechnung der posterioren prädiktiven Verteilung: $P(y_{test} | x_{test}, D)$.
+
+### Neue These
+> Entwicklung eines schwellenwertoptimierten Screening-Verfahrens zur Prädiktion von Herzinsuffizienz auf Basis patientenzentrierter Merkmale unter Verwendung von Tabular Posterior Sampling (TabPFN).
+
+
+## 11.02.2026
 **Robustness & Visualisierung (Master-Thesis Level)**
 
 1.  **Experiment-Design:**
@@ -15,7 +44,7 @@
     -   **Schwarze Linie (Error Bar):** Unsicherheit. Lang = Feature ist nur zufällig wichtig (Rauschen).
     -   **Negative Werte:** Feature schadet dem Modell (Overfitting auf Noise) -> Kandidat für Rauswurf.
 
-### 10.02.2026
+## 10.02.2026
 Feature Importance vs. Risikoverteilung (Das Gender-Paradoxon):
 Obwohl in den Plots (Balkendiagramm) klare Unterschiede im Risiko zwischen Männern und Frauen zu sehen sind, zeigt die Feature Importance für "gender" oft den Wert 0.
 Erklärung:
@@ -48,7 +77,7 @@ Wir variieren bewusst nur das Trainings-Set (Resampling), während das Validieru
 - Grund: Wir wollen die Varianz des Modells messen, nicht die Varianz der Testdaten.
 - Effekt: Wenn sich Metriken ändern, liegt es eindeutig am Training/Modell, nicht daran, dass ein Test-Set zufällig "leichter" oder "schwerer" war. Das sichert die Vergleichbarkeit ("Ceteris paribus").
 
-### 03.02.2026
+## 03.02.2026
 neue file: tab_pfn_v2_robustness
 füge weight hinzu aus inputevents (admission of )
 Feedback von Chatty: fokus auf hosp und ed data. Bei ICU sind es intensiv patienten, welche eine stark selektierte Gurppe (Kränkeste Patienten) ist. Also bei hosp und ed bleiben.
@@ -64,13 +93,13 @@ Da die Patienten über die Zeit mehrere Einträge haben wird für die Berechnung
 
 Beobachtung nach BMI implementierung (früh, Früh ist von 60% auf 70% gesprungen)
 
-### 27.01.2026
+## 27.01.2026
 Diskussion mit Oliver, Daten sind verteilt (viele Gesunde und wenige kranke). Im Training sind die Daten balanciert also 1/3 jeder Kategorie. Das Model lernt muster und wendet diese auf den originellen Datensatz an, daher fallen auch viele gesunde in "früh" oder "spät" statt gesund. (Type2 error). 
 - Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
 - Veralgemeinerung nicht nur Herzfehler, sondern auch andere Diagnosen.
 - Usability, wir würde man das Modell nutzen (Storyline)
 
-### 26.01.2026
+## 26.01.2026
 Feedback mit Jochen
 Log über die Ergebinsse speichern.
 Neue Notebooks für XGBoost und soweiter
@@ -82,7 +111,7 @@ verschiedene Samples für Robustheit
 -> Verteilung der Range, Logs gut darstellen. AVG und Varianz
 -> alles auf I50 Diagnose und dann als i-tüpfelchen andere Diagnosen testen.
 
-### 22.01.2026
+## 22.01.2026
 TabPFN blockiert lokale CPU-Berechnungen bei mehr als 1.000 Samples, weil die Performance dort massiv einbricht. Da du 9.000 Samples hast und eine Lizenz besitzt, ist die lokale CPU-Nutzung der falsche Weg.
 Entscheidung Cloud oder lokale Maschine (MacBook M4). Cloud geht nicht weil DUA (Data Use Agreement)
 Gemini:
@@ -92,14 +121,14 @@ Wir müssen diese Sperre manuell umgehen ("override") und die Vorhersage in klei
 
 Hier ist der vollständige, angepasste Code für Zelle 16/17. Er ersetzt deinen bisherigen Block komplett.
 
-### 21.01.2025
+## 21.01.2025
 Bei der erstellung der Klassen für Target 0-2, ob ein Patient mit code I50 (Herzfehler), wieder eintrifft wurden erst die Zeiträume. Weniger 1 Jahr und Mehr als 1 Jahr, sonstiges gewählt. Dabei verteilten sich die Daten wie folgt:
-shape: (3, 2)
-┌────────┬────────┐
-│ target ┆ counts │
-│ ---    ┆ ---    │
-│ i32    ┆ u32    │
-╞════════╪════════╡
+shape: (3, 2)  
+┌────────┬────────┐  
+│ target ┆ counts │  
+│ ---    ┆ ---    │  
+│ i32    ┆ u32    │  
+╞════════╪════════╡  
 │ 2      ┆ 204562 │
 │ 0      ┆ 10742  │
 │ 1      ┆ 8148   │
@@ -113,7 +142,7 @@ Aus dem gesamten Datensatz eine bestimmte Anzahl (4.000) von jeder Kategorie zu 
 2: low/no risk
 Nach dem Training wird gegen die echten Daten getestet. 
 
-### 27.12.2025
+## 27.12.2025
 Heute habe ich das PCA mit dem Iris Dataset erstellt. Vielleicht macht es mehr Sinn die Patienten nach Krankeiten zu labeln. Also "HIV", "Windpoken" usw. anstatt nach einem boolean wert wie 0/1. Mit PCA könnte ich verschiedene nummerische Features herausfinden und diese auf 2-3 n_components reduzieren. Seaborn ist ein klasse visualisierungstool dazu.
 
 
