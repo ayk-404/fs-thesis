@@ -10,7 +10,7 @@
 - [x] make a one-hot-encode tutorial
 - [x] make a PCA tutorial
 - [x] find the right data to predict a certain illness (infection)
-#### Gemini Fahrplan (https://gemini.google.com/app/7616ffc8ea6a56f7)
+#### Fahrplan
 - [x] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
 - [x] Code von SQL-Extraction dokumentieren
 - [x] Lizenz von Huggingface holen und tabpfn implementieren https://docs.priorlabs.ai/how-to-access-gated-models
@@ -23,19 +23,20 @@
 - [x] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
 - [x] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
 - [x] TabPFN auf msp und 9000 balanced sample prüfen statt cpu und kline sample (bwz vielleicht beides und dann verlgeichen)
-- [ ] Loop aufbauen
-- [ ] SHAP nutzen https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/
-- [ ] recherche "was ist Cross-Validation" anschauen.
-- [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
-- [ ] checken ob der patient als gestorben trz "gesund" ist
-
-- [ ] manuell code durchgehen und optimieren
+- [x] manuell code durchgehen und optimieren
+- [x] daten modular aufbauen
+- [ ] Loop aufbauen in TabPFN (Training speichern, Gesamt-Analyse)
 - [ ] roc-auc analyse einbauen
-    - [ ] Evaluation mithilfe von AUC, F1, calibration, subgroup fairness analyses
-- [ ] daten modular aufbauen
+- [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
 - [ ] benchmark aufbauen
     - [ ] xgboost, random forest, TabPFN, LLM experiments (Lesen welche Model am besten passen könnte mit Begründung)
+- [ ] Vergleich der Algos mithilfe von AUC, F1, calibration, subgroup fairness analyses
+- [ ] checken ob der patient als gestorben trz "gesund" ist
 
+### Recherche
+- [ ] Tutorial machen für Algos
+- [ ] SHAP nutzen https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/
+- [ ] recherche "was ist Cross-Validation" anschauen.
 - [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
 
 #### post work
