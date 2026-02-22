@@ -25,6 +25,7 @@
 - [x] TabPFN auf msp und 9000 balanced sample prüfen statt cpu und kline sample (bwz vielleicht beides und dann verlgeichen)
 - [x] manuell code durchgehen und optimieren
 - [x] daten modular aufbauen
+- [ ] Ergebnisse (Reports) hochladen in git
 - [ ] Loop aufbauen in TabPFN (Training speichern, Gesamt-Analyse)
 - [ ] roc-auc analyse einbauen
 - [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
