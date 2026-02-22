@@ -1,3 +1,14 @@
+## 22.02.2026
+Beobachtung. TabPFn ist effizienter als gleiche Algos (ref. TabPFn Paper p.322). Es ergibt sich daraus eine Machbarkeit und leichtere Anwendung für Cross-Use Cases.  
+Sollte in meiner Thesis, wie erwartet TabPFN am besten abscheiden. So bestätigt sich die Aussage aus dem Paper p.323.
+Mein Fazit in der Thesis sollte auf die Anwendbarkeit und Machbarkeit rauslaufen.
+
+*   **grund für meine Thesis:**  
+Die Statistik (Der Beweis)
+Gemäß den Daten der Weltgesundheitsorganisation (WHO) sowie des Global Burden of Disease (GBD) Reports 2023 sind Herz-Kreislauf-Erkrankungen (Cardiovascular Diseases, CVDs) weltweit die unangefochtene Todesursache Nummer 1.
+CVDs sind für ca. 32 % aller weltweiten Todesfälle verantwortlich (über 19 Millionen Tote jährlich).
+Die Tendenz ist durch die alternde Bevölkerung und metabolische Risikofaktoren (wie hoher BMI, was sich mit deinen Beobachtungen deckt) steigend. 
+Ein barrierefreies Triage-System basierend auf einfachen demografischen Daten (Alter, BMI) und einem Foundation Model (TabPFN), um Hochrisikopatienten frühzeitig zu filtern.
 ## 16.02.2026
 
 ### Methodik & Modell-Verständnis
@@ -172,7 +183,19 @@ Sondern sauber methodisch arbeiten
 - HOPE keine Rückmeldung wenn nicht dann nicht? 
 
 ## Thesis Definieren:
-"How good is the performance of a foundation model to predict the risk of a diagnose, based on demographic data?" 
+> "How good is the performance of a foundation model to predict the risk of a diagnose, based on demographic data?" 
+
+### Option 1 (Fokus auf Triage & das globale Problem – Empfohlen):
+
+> "Predicting the World's Leading Cause of Death: Evaluating TabPFN as an Early Triage System for Heart Failure Using Patient-Reported Demographics."
+
+### Option 2 (Fokus auf das Modell & Robustheit):
+
+> "Assessing the Applicability of Tabular Foundation Models in Early Clinical Screening: A Robustness Analysis of TabPFN for Cardiovascular Disease Risk."
+
+### Option 3 (Direkt & Methodisch – Weiterentwicklung deines Entwurfs):
+
+> "Developing a Threshold-Optimized Triage Tool for Heart Failure: Feasibility and Explainability of Tabular Posterior Sampling (TabPFN) on Patient-Centric Data."
 
 
 syn. data : scop ändert sich

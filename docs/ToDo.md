@@ -29,6 +29,7 @@
 - [ ] Loop aufbauen in TabPFN (Training speichern, Gesamt-Analyse)
 - [ ] roc-auc analyse einbauen
 - [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
+- [ ] baseline aufbauen (Multinomiale Logistische Regression): Gemini Chat.
 - [ ] benchmark aufbauen
     - [ ] xgboost, random forest, TabPFN, LLM experiments (Lesen welche Model am besten passen könnte mit Begründung)
 - [ ] Vergleich der Algos mithilfe von AUC, F1, calibration, subgroup fairness analyses
