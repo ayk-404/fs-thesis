@@ -1,3 +1,9 @@
+## 01.03.2026
+`reports/robustness_metrics_2026-03-01_17-50-30.csv`
+Die Auswertung anhand von F1 zeigt, dass das Model zwar stabil ist, aber noch zu ungenau errät (F-1 Score).
+Ich gebe recall und precision aus. Somit kann ich festlegen woher die niedrige prozentzahl kommt trotz gutem Ergebnis.
+
+
 ## 16.02.2026
 
 ### Methodik & Modell-Verständnis
