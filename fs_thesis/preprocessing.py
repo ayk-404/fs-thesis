@@ -49,8 +49,14 @@ def balance_data(df_train, n_samples=3000, seed=42):
         # Filter auf Klasse
         subset = df_pl.filter(pl.col("target") == c)
         # Nimm min(n_samples, echte_anzahl) -> kein Crash bei kleinen Klassen
-        n_take = min(n_samples, subset.height)
-        chunks.append(subset.sample(n=n_take, seed=seed))
+        ## balancing "undersampling der Mehrheitsklasse" aber kein "oversampling der Minderheitsklasse"
+        #n_take = min(n_samples, subset.height)
+        #chunks.append(subset.sample(n=n_take, seed=seed))
+
+        # Versuch besseres balancing zu bekommen:
+        n_take = n_samples 
+        # Nutze with_replacement=True für echtes Balancing
+        chunks.append(subset.sample(n=n_take, with_replacement=True, seed=seed))
         
     df_balanced = pl.concat(chunks).sample(fraction=1.0, shuffle=True, seed=seed)
     return df_balanced
