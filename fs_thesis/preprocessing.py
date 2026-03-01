@@ -35,7 +35,7 @@ def preprocess_data(data):
     return df_train, df_val, df_test
 
 
-def balance_data(df_train, n_samples=3000):
+def balance_data(df_train, n_samples=3000, seed=42):
     # Zurück zu Polars für effizientes Sampling
     if isinstance(df_train, pd.DataFrame):
         df_pl = pl.from_pandas(df_train)
@@ -50,9 +50,9 @@ def balance_data(df_train, n_samples=3000):
         subset = df_pl.filter(pl.col("target") == c)
         # Nimm min(n_samples, echte_anzahl) -> kein Crash bei kleinen Klassen
         n_take = min(n_samples, subset.height)
-        chunks.append(subset.sample(n=n_take, seed=42))
+        chunks.append(subset.sample(n=n_take, seed=seed))
         
-    df_balanced = pl.concat(chunks).sample(fraction=1.0, shuffle=True, seed=42)
+    df_balanced = pl.concat(chunks).sample(fraction=1.0, shuffle=True, seed=seed)
     return df_balanced
 
 def get_X_y(df, feature_cols=None, target_col="target"):
