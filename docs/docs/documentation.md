@@ -7,6 +7,10 @@ In den neuen Ergebnissen sieht man precision und recall im Vergleich zum F1 (all
 Das Balancing in der balance_data funktion wurde angepasst, damit ein undersampling und oversampling eine ausgewogene Mitte findet.  
 Trainings Iterationen werden auf 30 erhöht.
 
+## 22.02.2026
+Beobachtung. TabPFn ist effizienter als gleiche Algos (ref. TabPFn Paper p.322). Es ergibt sich daraus eine Machbarkeit und leichtere Anwendung für Cross-Use Cases.  
+Sollte in meiner Thesis, wie erwartet TabPFN am besten abscheiden. So bestätigt sich die Aussage aus dem Paper p.323.
+Mein Fazit in der Thesis sollte auf die Anwendbarkeit und Machbarkeit rauslaufen.
 
 ## 16.02.2026
 
