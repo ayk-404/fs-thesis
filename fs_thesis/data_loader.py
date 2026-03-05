@@ -135,3 +135,41 @@ def load_final_data():
         how="left")
     
     return df_final
+
+def load_binary_data():
+    df_baseline = load_baseline_data()
+    df_event = load_event_data()
+    df_bmi = load_bmi()
+
+    df_binary_data = (
+        df_baseline.join(df_event, on="subject_id", how="left")
+        # 1. Zeitdifferenzen und Event-Indikator berechnen
+        .with_columns([
+            ((pl.col("event_time") - pl.col("t0_time")).dt.total_days()).alias("t_event"),
+            ((pl.col("dod") - pl.col("t0_time")).dt.total_days()).alias("t_death"),
+            pl.col("event_time").is_not_null().cast(pl.Int32).alias("event_occurred")
+        ])
+        # 2. Duration festlegen (Priorität: Event > Tod > Fallback) und Clip
+        .with_columns(
+            pl.coalesce([
+                pl.col("t_event"),
+                pl.col("t_death"),
+                pl.lit(2000)
+            ])
+            .clip(lower_bound=0)
+            .alias("duration")
+        )
+        # 3. Zielvariable (Target) für TabPFN definieren
+        .with_columns(
+            pl.when((pl.col("event_occurred") == 1))
+            .then(1)      # Klasse 1: Ausbruch
+            .otherwise(0) # Klasse 0: Zensiert / Gesund / Kein Event
+            .alias("target")
+        )
+    )
+    df_binary_data=df_binary_data.join(
+        df_bmi, 
+        on="subject_id", 
+        how="left")
+    
+    return df_binary_data
