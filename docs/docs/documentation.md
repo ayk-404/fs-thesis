@@ -1,3 +1,100 @@
+ ## 04.03.2026
+
+### Gender-Paradoxon bestätigt sich in den Plots
+
+Im Plot "Risk by Gender and Insurance" haben Männer einen klar höheren durchschnittlichen Risiko-Score. Gleichzeitig zeigt die Feature Importance für Gender einen **negativen Wert** — das Modell wird also besser wenn man Gender zerstört (shuffelt).
+
+Das ist kein Widerspruch:
+- **Risk by Gender (Bar Chart):** Deskriptive Statistik. Männer sind im Schnitt kränker → höherer Score. Aber das liegt an Confoundern (Alter, BMI, Insurance-Verteilung), nicht am Geschlecht selbst.
+- **Feature Importance (Permutation):** Kausale Analyse. Gender bringt keine *eigene* Vorhersagekraft wenn Age und BMI schon bekannt sind. Im Gegenteil, es erzeugt Rauschen → negativer Importance-Wert = Feature schadet dem Modell.
+
+Das bestätigt die Beobachtung vom 10.02. (Gender-Paradoxon). Das Modell erkennt Scheinkorrelationen und ignoriert Gender zugunsten der echten Treiber. Für die Thesis ist das ein Argument für Robustheit gegen Confounding.
+
+### Gender-Paradoxon bestätigt sich in den Plots
+
+Im Plot "Risk by Gender and Insurance" haben Männer einen klar höheren durchschnittlichen Risiko-Score. Gleichzeitig zeigt die Feature Importance für Gender einen **negativen Wert** — das Modell wird also besser wenn man Gender zerstört (shuffelt).
+
+Das ist kein Widerspruch:
+- **Risk by Gender (Bar Chart):** Deskriptive Statistik. Männer sind im Schnitt kränker → höherer Score. Aber das liegt an Confoundern (Alter, BMI, Insurance-Verteilung), nicht am Geschlecht selbst.
+- **Feature Importance (Permutation):** Kausale Analyse. Gender bringt keine *eigene* Vorhersagekraft wenn Age und BMI schon bekannt sind. Im Gegenteil, es erzeugt Rauschen → negativer Importance-Wert = Feature schadet dem Modell.
+
+Das bestätigt die Beobachtung vom 10.02. (Gender-Paradoxon). Das Modell erkennt Scheinkorrelationen und ignoriert Gender zugunsten der echten Treiber. Für die Thesis ist das ein Argument für Robustheit gegen Confounding.
+
+### Confounding-Muster: Nicht nur Gender, auch Insurance
+
+Das selbe Muster wie beim Gender-Paradoxon zeigt sich bei Insurance. Medicare-Patienten haben im Bar Chart den höchsten Risiko-Score — aber Medicare bekommt man in den USA ab 65 Jahren. Der hohe Score kommt also nicht von der Versicherungsart, sondern weil Medicare-Patienten **alt** sind. Insurance kodiert Alter nochmal redundant.
+
+Wenn das Modell `anchor_age` schon kennt, bringt `insurance` keine neue Information. Das gleiche gilt vermutlich auch für `race` und `marital_status`. Damit bleiben von 8 Features nur **2 echte Treiber**: `anchor_age` und `bmi`. Der Rest sind Proxies oder Rauschen.
+
+Das ist kein Versagen des Modells — im Gegenteil: Das Modell entlarvt **systematisch** Scheinkorrelationen in den demografischen Daten. Drei Features (Gender, Insurance, möglicherweise Race) zeigen deskriptiv klare Unterschiede, aber das Modell erkennt dass die Unterschiede nicht von diesen Features kommen, sondern von Alter und BMI dahinter.
+
+### Fazit: Screening ja, Diagnose nein
+
+Demografische Daten reichen nicht für eine klinische Diagnose, aber für ein **vorgelagertes Screening**. Das Modell identifiziert Risikopatienten basierend auf Daten die ohne zusätzlichen Aufwand bei jeder Aufnahme existieren — ohne Labor, ohne EKG, ohne Bildgebung.
+
+Es ersetzt keine Diagnostik, sondern priorisiert den Zugang dazu. Das passt zur Thesis-Argumentation vom 16.02.:
+- **Barrierefreiheit:** Nur patientenzentrierte Daten, keine klinische Infrastruktur nötig.
+- **Ressourceneffizienz:** Triage-System, das Hochrisikopatienten gezielt zur Diagnostik leitet.
+- **Limitation ehrlich benennen:** F1 zeigt die Grenzen der Vorhersagegenauigkeit, AUC zeigt dass eine Trennschärfe da ist.
+
+### Notebook-Struktur: Finale Reihenfolge
+
+Test (Section 6.2) kommt vor Feature Importance (Section 7) weil `clf_best` in der Test-Zelle erstellt wird. Methodisch sind die beiden Analysen unabhängig voneinander — `clf_best` verändert sich nicht durch predict oder permutation. Die Reihenfolge ist rein technisch bedingt (Code-Abhängigkeit).
+
+### Feature Importance: Warum X_val und nicht X_test?
+
+Feature Importance wird auf `X_val` berechnet, nicht auf `X_test`. Das Test-Set wird in Section 6.2 einmalig für die finale Metrik angefasst. Wenn man es ein zweites Mal für Feature Importance nutzt, "lernt" man etwas über das Test-Set → die Test-Metriken wären nicht mehr unbiased. Das Val-Set wurde nie zum Trainieren verwendet, also misst die Permutation den echten Einfluss auf ungesehene Daten — ohne das Test-Set zu kontaminieren.
+
+
+
+## 03.03.2026
+
+### Notebook-Refactoring: TabPFN_v3 (Final Structure)
+
+Das Notebook wurde komplett aufgeräumt. Tote Zellen (alter `classifier` auf Test-Samples) wurden entfernt. Die finale Struktur sieht so aus:
+
+```
+1.  Data Pipeline
+2.  Preprocessing (Split + Balance)
+3.  Training Quick-Check (classifier)
+4.  Validation Quick-Check (1000 Samples)
+5.  Visualization (BMI, Age, Insurance, Confusion Matrix, Sankey)
+6.  Robustness Loop (3 Configs × 20 Runs)       ← Hauptergebnis
+6.1 Robustness Viz (Bar + Violin)
+7.  Test (clf_best auf Test-Set)                 ← Bestätigung
+8.  Feature Importance (clf_best, n_repeats=10)  ← Erklärung
+```
+
+Sections 3-5 sind der schnelle Sanity-Check. Sections 6-8 sind die Thesis-Ergebnisse.
+
+### Robustness Loop: 3 Ensemble-Configs
+
+Es werden 3 Konfigurationen verglichen (`n_estimators`: 8, 32, 64) über je 20 Runs mit verschiedenen Seeds. Das Balancing wird pro Run neu gezogen (`balance_data(seed=42+i)`), das Val-Set bleibt fix (Ceteris paribus, wie gehabt).
+
+### Test-Evaluation: Bestes Modell aus dem Loop
+
+Nach dem Loop wird der Run mit dem höchsten F1-Macro identifiziert. Das Modell wird mit dem gleichen Seed reproduziert (`clf_best`) und einmalig auf dem **Test-Set** evaluiert (nicht Val!). Damit ist die Trennung sauber: Val für Optimierung, Test für finale Aussage.
+
+### Design-Entscheidung: Feature Importance als Einzelaufruf (nicht im Loop)
+
+**Entscheidung:** Feature Importance wird einmalig mit `clf_best` auf dem vollen `X_val` berechnet (`n_repeats=10`), nicht im Robustness Loop.
+
+**Begründung:**
+- `permutation_importance` shuffelt intern 10× pro Feature → man bekommt `mean ± std` aus einem Aufruf. Das ist methodisch solide.
+- Die Varianz entsteht durch das Shuffeln der Features auf `X_val`, nicht durch verschiedene Modelle. `X_val` ist in allen Szenarien identisch (gleiches Set, gleiche Verteilung).
+- Ein einzelner Run mit `n_repeats=10` = 10 Messpunkte pro Feature. Das reicht für stabile Error Bars.
+- Im Loop hätte man 20 Modelle × 5 Repeats = 100 predict-Aufrufe **extra**. Bei ~3min pro Predict wären das ~5h zusätzliche Laufzeit für einen marginalen Gewinn.
+- **Scoring:** `f1_macro` statt default (accuracy), passend zur Hauptmetrik der Thesis.
+
+> **Warum kein Bias durch einzelnes Modell?**
+> Die Sorge wäre: Was wenn `clf_best` zufällig eine andere Feature-Gewichtung hat als der Durchschnitt?
+> Das ist bei 8 Features und einem stabilen Val-Set extrem unwahrscheinlich. Die Permutation misst den Einfluss auf die Vorhersage von `X_val` — und `X_val` ändert sich nie. Wenn Age im besten Modell wichtig ist, ist es auch in den anderen wichtig, weil die Datenverteilung identisch ist.
+
+### Notebook-Hygiene
+- `skip`-Toggle durch Guard ersetzt: `if 'clf_best' not in dir()` → Feature Importance wird automatisch übersprungen wenn der Loop noch nicht gelaufen ist. Kein manuelles Umschalten mehr nötig.
+- Alte Test-Zellen mit `classifier.predict(X_test_sample)` gelöscht (redundant, nutzte altes Modell auf nur 1000 Samples).
+- Run-Ordner mit Timestamp, Checkpoints nach jeder Config, Log-File für Overnight-Runs.
+
 ## 01.03.2026
 `reports/robustness_metrics_2026-03-01_17-50-30.csv`
 Die Auswertung anhand von F1 zeigt, dass das Model zwar stabil ist, aber noch zu ungenau errät (F-1 Score).
