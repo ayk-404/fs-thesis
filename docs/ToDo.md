@@ -2,27 +2,23 @@
 
 ## 🔴 Prio 1 — Thesis-Kern
 
-- [ ] **Benchmark-Notebook** erstellen (`models/Benchmark.ipynb`)
-    - [ ] DummyClassifier (Baseline)
-    - [ ] LogisticRegression
-    - [ ] RandomForest
-    - [ ] XGBoost
-    - [ ] TabPFN (gleiche Pipeline wie v4)
-    - [ ] Vergleichstabelle: AUC, F1, Accuracy, per-class F1
-- [ ] **Data Quality Check**: Gestorbene Patienten als "gesund" (target=2) klassifiziert? → `dod` prüfen
-- [ ] **Feature Ablation**: Modell nur mit age+bmi vs. alle 8 Features → zeigt ob Rest nur Rauschen
+- [ ] TabICL vergleichen
+- [ ] Beantworten, warum TabPFN langsamer ist (präzise beantworten)
+- [ ] recall: echt positiv (positiv identifizierte) (30% von 100% - die krank sind) mit in Thesis aufschreiben
+- [ ] precision: von allen die krank sind wie viele sind wirklich krank (baysan precision) in Thesis aufschreiben
+- [ ] TabPFN mit einem Loop ist verlgeichbar, weil Robust - mit Beweis in Thesis aufnehmen
+- [ ] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
 - [ ] **Thesis schreiben**: Fokus auf Interpretation: "Warum sind demographische Daten Prädiktoren?"
 
 ## 🟡 Prio 2 — Vertiefung
 
 - [ ] SHAP nutzen (https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/)
 - [ ] Evaluierung & Bias-Check: Vorhersage schlechter für bestimmte Ethnizitäten/Versicherungsklassen?
-- [ ] Ergebnisse (Reports) hochladen in git
+- [x] Ergebnisse (Reports) hochladen in git
 - [ ] Interaktionseffekte anschauen (https://www.statology.org/how-to-spot-interaction-effects-using-python-plots/)
 
 ## 🟢 Prio 3 — Nice-to-have
 
-- [ ] Verallgemeinerung: nicht nur Herzfehler, sondern auch andere Diagnosen
 - [ ] Cross-Validation recherchieren und ggf. einbauen
 - [ ] mkdocs einpflegen (https://www.youtube.com/watch?v=DeZjkCtttss)
 - [ ] update LICENSE
@@ -30,7 +26,14 @@
 ## ✅ Erledigt
 
 <details><summary>Abgeschlossene Aufgaben</summary>
-
+- [x] **Benchmark-Notebook** erstellen (`models/Benchmark.ipynb`)
+    - [x] DummyClassifier (Baseline)
+    - [x] LogisticRegression
+    - [x] RandomForest
+    - [x] XGBoost
+    - [x] TabPFN (gleiche Pipeline wie v4)
+    - [x] Vergleichstabelle: AUC, F1, Accuracy, per-class F1
+- [x] **Data Quality Check**: Gestorbene Patienten als "gesund" (target=2) klassifiziert? → `dod` prüfen
 - [x] load csv files into duck.db
 - [x] SQL-Extraktion (demographische Daten + Time-to-Event)
 - [x] BMI implementieren als Feature
