@@ -1,0 +1,11 @@
+{
+  "n_loops": 1,
+  "configs": [
+    {
+      "name": "low",
+      "N_ensemble": 8,
+      "n_samples": 300
+    }
+  ],
+  "run_dir": "/Users/andrey/Repositories/fs-thesis/runs/20260302_194515"
+}
