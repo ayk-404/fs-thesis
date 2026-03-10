@@ -1,3 +1,6 @@
+ ## 09.03.2026
+ TabPFN hat per Design kein echtes Training — 20 Loops mit verschiedenen Trainingssamples gibt dir Varianz-Information, aber der Mehrwert gegenüber 1 Run ist begrenzt. Bei sklearn-Modellen macht es mehr Sinn weil die stärker vom Trainingsset abhängen.
+ 
  ## 04.03.2026
 
 ### Gender-Paradoxon bestätigt sich in den Plots
