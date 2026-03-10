@@ -2,7 +2,7 @@
 
 ## 🔴 Prio 1 — Thesis-Kern
 
-- [ ] TabICL vergleichen
+- [x] TabICL vergleichen
 - [ ] Beantworten, warum TabPFN langsamer ist (präzise beantworten)
 - [ ] recall: echt positiv (positiv identifizierte) (30% von 100% - die krank sind) mit in Thesis aufschreiben
 - [ ] precision: von allen die krank sind wie viele sind wirklich krank (baysan precision) in Thesis aufschreiben
