@@ -1,0 +1,2 @@
+recall: echt positiv (positiv identifizierte) (30% von 100% - die krank sind) mit in Thesis aufschreiben
+precision: von allen die krank sind wie viele sind wirklich krank (baysan precision) in Thesis aufschreiben
