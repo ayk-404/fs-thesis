@@ -1,0 +1,2 @@
+run_id,config_name,n_ensemble,n_samples,accuracy,roc_auc_macro,f1_macro,recall_macro,precision_macro,f1_class_0_early,f1_class_1_late,f1_class_2_healthy,seed
+0,low,8,300,0.5313400274102873,0.8035749632073723,0.35608586408919846,0.642877657322066,0.4036585014773441,0.21275272161741834,0.17867047651063114,0.676834394139546,42

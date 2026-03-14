@@ -1,3 +1,4 @@
+from networkx import display
 import polars as pl
 import pandas as pd
 import os

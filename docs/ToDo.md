@@ -1,48 +1,52 @@
 # ToDo
-#### data prep
-- [x] load csv files into duck.db
-#### data EDA
-- [x] Diagnose kategorisieren für welche man Daten hat
-- [x] erster Scatter Plot
-- [x] remove unnessecary files and code
-- [x] clean up the code in the notebooks 
-#### data preprocessing
-- [x] make a one-hot-encode tutorial
-- [x] make a PCA tutorial
-- [x] find the right data to predict a certain illness (infection)
-#### Gemini Fahrplan (https://gemini.google.com/app/7616ffc8ea6a56f7)
-- [x] SQL-Extraktion. Erstelle eine Tabelle, die für jeden Patienten die demographischen Daten und die "Time-to-Event" (Tage bis ICD-Code X) enthält.
-- [x] Code von SQL-Extraction dokumentieren
-- [x] Lizenz von Huggingface holen und tabpfn implementieren https://docs.priorlabs.ai/how-to-access-gated-models
-- [x] nächste Schritte von Chatty machen
-- [x] Datenbereinigung & Preprocessing. Behandle fehlende Werte (Imputation) und kodiere kategoriale Daten für die Baselines (TabPFN braucht das oft nicht!).
-- [x] kg, Height oder BMI implementieren als Feature
-- [x] Features aufschlüsseln
-- [x] logs einbauen
-- [ ] negatives feature verschlechtert das modell. auswerten welches immer negativ ist und dass mal weglassen danaach vergleichen mit anderen durchgängen
-- [ ] code durchgehen und optimieren, manuell
-- [ ] Robustheit bestätigen/prfen mit 30 durchläufen mit 300 samples
-- [ ] logs validieren in einer guten darstellung (avg, mittelwert, varianz)
-- [ ] 10k durchlauf machen als referenz
-- [ ] Man könnte die Features aufteilen also welche Art von Insurance, welche gender (m oder w), etc um mehr Analysewerte "Verständnis" zu bekommen.
-- [ ] recherche "was ist Cross-Validation" anschauen.
-- [ ] Evaluierung & Bias-Check. Analysiere: Vorhersagt das Modell für bestimmte Ethnizitäten oder Versicherungsklassen schlechter? (Wichtig für den "aktuellen" Teil der Arbeit).
-- [ ] Thesis schreiben. Fokus auf die Interpretation: "Warum sind demographische Daten Prädiktoren für die Zeitspanne bis zur Krankheit?"
 
+## 🔴 Prio 1 — Thesis-Kern
+
+- [x] TabICL vergleichen
+- [x] Beantworten, warum TabPFN langsamer ist (präzise beantworten)
+- [x] recall: echt positiv (positiv identifizierte) (30% von 100% - die krank sind) mit in Thesis aufschreiben
+- [x] precision: von allen die krank sind wie viele sind wirklich krank (baysan precision) in Thesis aufschreiben
+- [x] TabPFN mit einem Loop ist verlgeichbar, weil Robust - mit Beweis in Thesis aufnehmen
+- [x] XGB trainieren
+- [ ] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
+- [ ] **Thesis schreiben**: Fokus auf Interpretation: "Warum sind demographische Daten Prädiktoren?"
+
+## 🟡 Prio 2 — Vertiefung
+
+- [ ] SHAP nutzen (https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/)
+- [ ] Evaluierung & Bias-Check: Vorhersage schlechter für bestimmte Ethnizitäten/Versicherungsklassen?
+- [x] Ergebnisse (Reports) hochladen in git
 - [ ] Interaktionseffekte anschauen (https://www.statology.org/how-to-spot-interaction-effects-using-python-plots/)
-- [ ] Encode the data (One-Hot-Encoder), to fit it into a PCA (Principal Component Analysis) -> Curse of D.
-- [ ] Interaktionseffekte untersuchen
-- [ ] Scatter Analyse von Datenpunkten und ihrer Verteilung (PC1 & PC2)
-- [ ] Korrelation analysieren, obs eine Korrelation gibt und wenn ja welche? 
-- [ ] Regression ausprobieren
-    - [ ] lineare Regression kurze Recherche
-    - [ ] logistische Regression kurze Recherche
-#### model work
-- [ ] random forest, TabPFN, LLM experiments (Lesen welche Model am besten passen könnte mit Begründung)
-- [ ] Evaluation mithilfe von AUC, F1, calibration, subgroup fairness analyses
-#### post work
-- [ ] update LICENSE
-- [ ] mkdocs einpflegen https://www.youtube.com/watch?v=DeZjkCtttss
 
-### i-tüpfelchen
-- [ ] Veralgemeinerung nicht nur Herzfehler, sondern auch andere Diagnosen.
+## 🟢 Prio 3 — Nice-to-have
+
+- [ ] Cross-Validation recherchieren und ggf. einbauen (kein Sinn bei TabPFN, da kein Training)
+- [ ] mkdocs einpflegen (https://www.youtube.com/watch?v=DeZjkCtttss)
+- [ ] update LICENSE
+
+## ✅ Erledigt
+
+<details><summary>Abgeschlossene Aufgaben</summary>
+- [x] **Benchmark-Notebook** erstellen (`models/Benchmark.ipynb`)
+    - [x] DummyClassifier (Baseline)
+    - [x] LogisticRegression
+    - [x] RandomForest
+    - [x] XGBoost
+    - [x] TabPFN (gleiche Pipeline wie v4)
+    - [x] Vergleichstabelle: AUC, F1, Accuracy, per-class F1
+- [x] **Data Quality Check**: Gestorbene Patienten als "gesund" (target=2) klassifiziert? → `dod` prüfen
+- [x] load csv files into duck.db
+- [x] SQL-Extraktion (demographische Daten + Time-to-Event)
+- [x] BMI implementieren als Feature
+- [x] Datenbereinigung & Preprocessing
+- [x] Features aufschlüsseln (Risk-Analyse pro Subgruppe)
+- [x] Robustheit bestätigen (20 Runs, n_samples=300)
+- [x] ROC-AUC Analyse + Visualisierung
+- [x] Loop aufbauen (Checkpoints, Logging, Config-Vergleich)
+- [x] Feature Importance (Permutation, n_repeats=10, f1_macro)
+- [x] Confusion Matrix + Sankey
+- [x] TabPFN auf MPS (Apple Metal) optimiert
+- [x] Code modular aufgebaut (data_loader.py, preprocessing.py)
+- [x] Notebook-Struktur finalisiert (TabPFN_v4)
+
+</details>
