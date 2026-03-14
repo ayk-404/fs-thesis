@@ -7,6 +7,7 @@
 - [x] recall: echt positiv (positiv identifizierte) (30% von 100% - die krank sind) mit in Thesis aufschreiben
 - [x] precision: von allen die krank sind wie viele sind wirklich krank (baysan precision) in Thesis aufschreiben
 - [x] TabPFN mit einem Loop ist verlgeichbar, weil Robust - mit Beweis in Thesis aufnehmen
+- [x] XGB trainieren
 - [ ] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
 - [ ] **Thesis schreiben**: Fokus auf Interpretation: "Warum sind demographische Daten Prädiktoren?"
 
@@ -19,7 +20,7 @@
 
 ## 🟢 Prio 3 — Nice-to-have
 
-- [ ] Cross-Validation recherchieren und ggf. einbauen
+- [ ] Cross-Validation recherchieren und ggf. einbauen (kein Sinn bei TabPFN, da kein Training)
 - [ ] mkdocs einpflegen (https://www.youtube.com/watch?v=DeZjkCtttss)
 - [ ] update LICENSE
 
