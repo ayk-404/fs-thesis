@@ -1,3 +1,19 @@
+ ## 14.03.2026
+ Die bisherigen Modelle haben ihre default werte hinterlegt, kein Training (keine Spezialisierung).
+
+ Robustness Loop shows the variance. So the models are performing stable.
+ The tuned versions, shows what the models could achieve. 
+ ### honest limitation to acknowledge
+ All F1 Macro values are low (0.36–0.40). The reason is your class distribution:
+Early:   1,719  (~4.8%)
+Late:    1,304  (~3.6%)
+Healthy: 32,730 (~91.5%)
+No model can do well on Early and Late when they represent less than 5% of the data each. The F1 for class 2 (Healthy) is likely ~0.95+ for every model — but that gets averaged with the poor minority class scores, pulling F1 Macro down. This is not a model failure — it is a data reality that needs to be stated clearly in your thesis.
+
+ ### Balancing data for tuned models
+ the models will train on the whole data. So its important to handle the balancing.
+### One Quote for the thesis:
+ TabPFN matches classical models in the small-data regime and achieves superior probability calibration (AUC), but fully-trained RF and XGBoost outperform it on F1 Macro — suggesting TabPFN's zero-shot advantage is most valuable when labeled data is scarce.
  ## 09.03.2026
  TabPFN hat per Design kein echtes Training — 20 Loops mit verschiedenen Trainingssamples gibt dir Varianz-Information, aber der Mehrwert gegenüber 1 Run ist begrenzt. Bei sklearn-Modellen macht es mehr Sinn weil die stärker vom Trainingsset abhängen.
  
@@ -259,37 +275,3 @@ Nach dem Training wird gegen die echten Daten getestet.
 ## 27.12.2025
 Heute habe ich das PCA mit dem Iris Dataset erstellt. Vielleicht macht es mehr Sinn die Patienten nach Krankeiten zu labeln. Also "HIV", "Windpoken" usw. anstatt nach einem boolean wert wie 0/1. Mit PCA könnte ich verschiedene nummerische Features herausfinden und diese auf 2-3 n_components reduzieren. Seaborn ist ein klasse visualisierungstool dazu.
 
-
-# Master Thesis
- • spezielle Krankheiten?
- • kleinerer Scope anfangen & skalieren (Kategorie von Diagnosen)
-
-## Arbeit
- • Seitenanzahl egal max 70
- 
-## Structure
- • Motivation
- • Problem klar?
- • Frage
- • Warum ist die Frage interessant
- • strengente Analyse auf die Frage
- • Resultat
- • Was sind die take aways?
- • Was sind die nächsten Schritte?
-# wichtig
-Nicht sich selbst beweisen 
-Sondern sauber methodisch arbeiten 
-
-# Open Points
-- Sind semantische Daten okay?
-- E-Mail in PhysioNet eintrage ok? 
-- HOPE keine Rückmeldung wenn nicht dann nicht? 
-
-## Thesis Definieren:
-"How good is the performance of a foundation model to predict the risk of a diagnose, based on demographic data?" 
-
-
-syn. data : scop ändert sich
-
-# Idee
-Schauen Statistik wodurch menschen am häufigsten sterben und dann ml drauf
