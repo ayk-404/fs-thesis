@@ -14,6 +14,17 @@ No model can do well on Early and Late when they represent less than 5% of the d
  the models will train on the whole data. So its important to handle the balancing.
 ### One Quote for the thesis:
  TabPFN matches classical models in the small-data regime and achieves superior probability calibration (AUC), but fully-trained RF and XGBoost outperform it on F1 Macro — suggesting TabPFN's zero-shot advantage is most valuable when labeled data is scarce.
+
+Methods — Hyperparameter Optimization Strategy
+
+To obtain well-tuned classical baselines, Random Forest and XGBoost were trained using a two-stage procedure. First, hyperparameters were optimized via RandomizedSearchCV with 30 candidates and 3-fold cross-validation on a stratified subsample of 20,000 training examples. This subsample-based search was chosen to maintain a feasible runtime while covering a broad hyperparameter space. The best configuration was subsequently used to refit each model on the full training set of 143,008 examples, yielding the final RF_tuned and XGB_tuned baselines.
+
+
+Results/Discussion — Interpretation of the Tuned Models
+
+The XGBoost training history (Figure X) shows train and validation loss converging in parallel across all 200 boosting rounds, with no sign of overfitting. Notably, the best validation round coincides with the final round (round 199), suggesting that performance had not yet fully plateaued and that additional estimators could yield marginal further gains.
+A gap is observable between the cross-validation F1 of the best HPO candidate (0.43, measured on 20k rows) and the final validation F1 after refit on the full training set (0.394). This discrepancy reflects a known limitation of subsample-based HPO: hyperparameters optimized on a smaller distribution do not transfer perfectly to a larger, more heterogeneous training set. This gap is not indicative of overfitting, but rather of the approximation inherent in the chosen HPO strategy. Given the scope of this thesis, full-data HPO was deemed computationally infeasible; the resulting baselines nonetheless represent a substantially stronger upper bound than the 300-sample regime used for the robustness benchmark.
+
  ## 09.03.2026
  TabPFN hat per Design kein echtes Training — 20 Loops mit verschiedenen Trainingssamples gibt dir Varianz-Information, aber der Mehrwert gegenüber 1 Run ist begrenzt. Bei sklearn-Modellen macht es mehr Sinn weil die stärker vom Trainingsset abhängen.
  
