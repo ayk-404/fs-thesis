@@ -17,13 +17,13 @@ Performance vs. Accessibility: Benchmarking Tabular Foundation Models against Hy
 # Gliederung
 
 ### 1. Introduction *(2–3 pages)*
-1.1 Motivation: The Expertise Barrier in Clinical AI Deployment  
-1.2 Research Question: Can Foundation Models Replace the Need for ML Expertise?  
-1.3 Thesis Contribution & Structure  
+1.1 Motivation: Laverage AI in Clinical Screening Methods
+1.2 Research Question: Can Foundation Models Replace the Need for ML Expertise?  or Can TabPFN predict a heart failure? 
+1.3 Thesis Structure  
 
 ### 2. Theoretical Foundation *(4–5 pages)*
 2.1 Tabular Data in Healthcare: Characteristics and Challenges  
-2.2 Classical Ensemble Methods: Random Forest and Gradient Boosting  
+2.2 Classical Methods: Random Forest and Gradient Boosting  
 2.3 The Role of HPO: Why Tuning Matters for Classical Models  
 2.4 Tabular Foundation Models: TabPFN and TabICL  
 2.5 The Accessibility Argument: Zero-Shot Learning as a Paradigm Shift  
@@ -42,7 +42,7 @@ Performance vs. Accessibility: Benchmarking Tabular Foundation Models against Hy
 
 ### 5. Discussion *(4 pages)*
 5.1 TabPFN as a Zero-Shot Screener: What It Can and Cannot Do  
-5.2 The Real Barrier: Not Performance, But Expertise and Setup Cost  
+5.2 The Real Barrier: Not Performance, But Expertise and Setup Cost for AI
 5.3 Generalizability: From Medicine to Finance and Marketing  
 5.4 Limitations: Dataset Size, Feature Space, and HPO Approximation  
 
