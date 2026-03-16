@@ -14,7 +14,7 @@ Performance vs. Accessibility: Benchmarking Tabular Foundation Models against Hy
 
 
 
-# Gliederung
+# Outline
 
 ### 1. Introduction *(2–3 pages)*  
 1.1 Motivation: Laverage AI in Clinical Screening Methods  
