@@ -28,6 +28,7 @@
 ## R
 ## S
 ## T
+[TabICL Paper](https://arxiv.org/abs/2602.11139)
 [TabPFN](https://github.com/PriorLabs/TabPFN)
 [TabPFN Colab Example](https://colab.research.google.com/github/PriorLabs/TabPFN/blob/main/examples/notebooks/TabPFN_Demo_Local.ipynb)
 [TabPFN Paper](https://www.nature.com/articles/s41586-024-08328-6)
