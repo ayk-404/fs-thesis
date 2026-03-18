@@ -8,9 +8,8 @@
 - [x] precision: von allen die krank sind wie viele sind wirklich krank (baysan precision) in Thesis aufschreiben
 - [x] TabPFN mit einem Loop ist verlgeichbar, weil Robust - mit Beweis in Thesis aufnehmen
 - [x] XGB trainieren
-- [ ] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
-- [ ] **Thesis schreiben**: Fokus auf Interpretation: "Warum sind demographische Daten Prädiktoren?"
-
+- [x] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
+- [ ] Paper zu TabPFN tune lesen
 ## 🟡 Prio 2 — Vertiefung
 
 - [ ] SHAP nutzen (https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/)
