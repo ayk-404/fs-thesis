@@ -1,16 +1,9 @@
 
+Zitat-Style: harvard
 # Titel
-### Option 1 
-Performance vs. Accessibility: Benchmarking Tabular Foundation Models against Hyperparameter-Optimized Machine Learning in Clinical Risk Prediction
 
-### Option 2 
-Evaluating TabPFN's Out-of-the-Box Utility vs. Optimized Gradient Boosting for Medical Screening
-
-### Option 3 
-Zero-Shot vs. Optimized: Benchmarking Tabular Foundation Models as Low-Barrier Alternatives to Hyperparameter-Tuned Machine Learning in Clinical Risk Prediction
-
-### Option 4 fav
-Performance vs. Accessibility: Benchmarking Tabular Foundation Models against Hyperparameter-Optimized Machine Learning — Evidence from Clinical Risk Prediction
+### WIP
+Benchmarking Tabular Foundation Models against Hyperparameter-Optimized Machine Learning in Clinical Risk Prediction
 
 
 
@@ -32,7 +25,8 @@ Performance vs. Accessibility: Benchmarking Tabular Foundation Models against Hy
 3.1 Dataset: MIMIC-IV Heart Failure Cohort and Target Definition  (predict 1/0 for heart failure or keep it?)
 3.2 Data Pipeline: Preprocessing, Balancing, and Feature Engineering  
 3.3 Model Configurations: Zero-Shot Baselines vs. HPO-Tuned Models  
-3.4 Evaluation Framework: Robustness Loop, Metrics, and Fair Comparison  
+3.4 TabPFN tuning  
+3.5 Evaluation Framework: Robustness Loop, Metrics, and Fair Comparison  
 
 ### 4. Results *(5–6 pages)*
 4.1 Benchmark Performance: F1 Macro and ROC-AUC Across All Models  
