@@ -10,6 +10,18 @@
 - [x] XGB trainieren
 - [x] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
 - [ ] Paper zu TabPFN tune lesen
+- [ ] Entscheiden ob tune gemacht wird und das ggf ausführen
+- [ ] Im Paper Entscheidung dokumentieren (Gliederung)
+- [ ] Struktur der Arbeit Generel -> Detail -> Generel (in Gliederung mit aufnehmen & 4.1 recall und precision erklären)
+- [ ] Punkt 6.3 überdenken (always end on a high note): Fundamental, tiefreichende Stoßrichtung - was das Highlight ist
+- [ ] TItel bestimmen
+- [ ] schreiben Kap 3 (Zugänglich machen für Punch lines in 4 und 5)
+- [ ] schreiben Kap 4
+- [ ] schreiben Kap 2
+- [ ] schreiben Kap 5
+- [ ] schreiben Kap 6
+- [ ] schreiben Kap 1
+
 ## 🟡 Prio 2 — Vertiefung
 
 - [ ] SHAP nutzen (https://www.aidancooper.co.uk/a-non-technical-guide-to-interpreting-shap-analyses/)
