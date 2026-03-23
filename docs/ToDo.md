@@ -11,7 +11,7 @@
 - [x] Gliederung schreiben (Arbeit von Innen nach Aussen schreiben, Ergebinsse dann Einleitung etc.)
 - [x] Paper zu TabPFN tune lesen
 - [x] Entscheiden ob tune gemacht wird und das ggf ausführen
-- [ ] Im Paper Entscheidung dokumentieren (Gliederung)
+- [x] Im Paper Entscheidung dokumentieren (Gliederung)
 - [ ] Struktur der Arbeit Generel -> Detail -> Generel (in Gliederung mit aufnehmen & 4.1 recall und precision erklären)
 - [ ] Punkt 6.3 überdenken (always end on a high note): Fundamental, tiefreichende Stoßrichtung - was das Highlight ist
 - [ ] TItel bestimmen

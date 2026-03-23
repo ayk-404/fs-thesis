@@ -41,6 +41,7 @@
 
 
 licence: https://priorlabs.ai/tabpfn-license
+https://slideslive.com/embed/presentation/38931965
 
 
 
