@@ -12,7 +12,7 @@
 - [x] Paper zu TabPFN tune lesen
 - [x] Entscheiden ob tune gemacht wird und das ggf ausführen
 - [x] Im Paper Entscheidung dokumentieren (Gliederung)
-- [ ] Struktur der Arbeit Generel -> Detail -> Generel (in Gliederung mit aufnehmen & 4.1 recall und precision erklären)
+- [x] Struktur der Arbeit Generel -> Detail -> Generel (in Gliederung mit aufnehmen & 4.1 recall und precision erklären)
 - [ ] Punkt 6.3 überdenken (always end on a high note): Fundamental, tiefreichende Stoßrichtung - was das Highlight ist
 - [ ] TItel bestimmen
 - [ ] schreiben Kap 3 (Zugänglich machen für Punch lines in 4 und 5)
