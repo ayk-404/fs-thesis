@@ -43,4 +43,16 @@ Benchmarking Tabular Foundation Models against Hyperparameter-Optimized Machine 
 ### 6. Conclusion *(2–3 pages)*
 6.1 Summary of Findings  
 6.2 Practical Recommendations: When to Use Foundation Models  
-6.3 Future Work with clinical data scope: Add more features, like habits and other factors a patient would know w/o tests, to improve the F1-Score and use the full potential of TabPFN/TabICL
+6.3 TabPFN lowers the barrier
+    LLM lowers the barrier for AI in general, but there is no easy way to find high impact. With MCP, Agents, etc we still
+    have the error of halluzination. But with tabpfn we focus on bayesian inference. No haluzination but math as a backbone.
+    And the base for this backbone is not a prompt, a poem or a thesis. It is the data every industry has, in tabular format. 
+    This algorithm will lower the barrier for industry usage of AI. It will maybe not outperform current ML-Pipelines, Teams 
+    of Engineers and Agents. But it will leverage the current barrier and improve the impact for businesses in a massive way.
+
+``` 
+GPT Formulierung  
+While Large Language Models (LLMs) rely on stochastic sequence generation—prone to inherent hallucinations—Tabular Foundation Models like TabPFN leverage approximated Bayesian inference to provide robust, calibrated probability estimates from structured data.
+
+The empirical results of this thesis (see Sections 4.1 & 4.3) demonstrate that the performance gap between zero-shot foundation models and highly optimized ML pipelines in clinical risk prediction is often marginal. Consequently, the primary value proposition shifts from raw predictive power to operational efficiency and reduced expertise requirements (Section 5.2). By mitigating the high entry barriers of traditional HPO-driven workflows, Tabular Foundation Models serve as a scalable entry point for AI adoption across data-driven industries, offering a mathematically grounded alternative to the risks of unstructured generative AI.
+```
