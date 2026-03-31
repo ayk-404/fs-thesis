@@ -1,0 +1,15 @@
+{
+  "n_loops": 20,
+  "n_samples": 300,
+  "models": [
+    "DummyClassifier",
+    "LogisticRegression",
+    "RandomForest",
+    "XGBoost",
+    "TabPFN",
+    "TabICL",
+    "RF_tuned",
+    "XGB_tuned"
+  ],
+  "run_dir": "/Users/andrey/Repositories/fs-thesis/models/runs/benchmark_20260314_125538"
+}

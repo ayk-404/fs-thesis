@@ -1,0 +1,14 @@
+{
+  "model": "TabPFN",
+  "run_id": 0,
+  "seed": 42,
+  "accuracy": 0.566,
+  "f1_macro": 0.3823273066151356,
+  "roc_auc_macro": 0.8116903584668737,
+  "recall_macro": 0.6857849556502144,
+  "precision_macro": 0.4150069864774071,
+  "f1_class_0_early": 0.24167694204685575,
+  "f1_class_1_late": 0.2,
+  "f1_class_2_healthy": 0.7053049777985511,
+  "time_sec": 19.904303073883057
+}
