@@ -12,7 +12,7 @@ Benchmarking Tabular Foundation Models against Hyperparameter-Optimized Machine 
 ### 1. Introduction *(2–3 pages)*  
 1.1 Motivation: Laverage AI in Clinical Screening Methods  
 1.2 Research Question: Can TabPFN or TabICL predict a heart failure better, then a classic ML on demographic clinical data?  
-1.3 Thesis Structure  
+  
 
 ### 2. Theoretical Foundation *(4–5 pages)*
 2.1 Tabular Data in Healthcare: Characteristics and Challenges  
