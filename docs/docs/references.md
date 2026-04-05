@@ -32,6 +32,7 @@
 [TabPFN](https://github.com/PriorLabs/TabPFN)  
 [TabPFN Colab Example](https://colab.research.google.com/github/PriorLabs/TabPFN/blob/main/examples/notebooks/TabPFN_Demo_Local.ipynb)  
 [TabPFN Paper](https://www.nature.com/articles/s41586-024-08328-6)  
+[TabTune](https://arxiv.org/pdf/2511.02802)  
 ## U
 ## V
 ## W
