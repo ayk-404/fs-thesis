@@ -1,2 +1,0 @@
-config_name,f1_mean,f1_std,acc_mean,acc_std,auc_mean,auc_std,f1_early_mean,f1_early_std,f1_late_mean,f1_late_std,f1_healthy_mean,f1_healthy_std,n_runs
-low,0.35608586408919846,,0.5313400274102873,,0.8035749632073723,,0.21275272161741834,,0.17867047651063114,,0.676834394139546,,1
