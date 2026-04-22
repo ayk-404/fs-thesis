@@ -1,0 +1,14 @@
+{
+  "model": "TabICL",
+  "run_id": 0,
+  "seed": 42,
+  "accuracy": 0.606,
+  "f1_macro": 0.34359788293092824,
+  "roc_auc_macro": 0.814922665090334,
+  "recall_macro": 0.5982664295168298,
+  "precision_macro": 0.3852291508325503,
+  "f1_class_0_early": 0.24283765347885403,
+  "f1_class_1_late": 0.037463976945244955,
+  "f1_class_2_healthy": 0.7504920183686857,
+  "time_sec": 10.885773658752441
+}
