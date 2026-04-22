@@ -119,13 +119,16 @@ def load_final_data():
             .clip(lower_bound=0)
             .alias("duration")
         )
-        # 3. Zielvariable (Target) für TabPFN definieren
+        # 3. Patienten mit Krankheitsausbruch nach > 3 Jahren komplett ausschließen
+        .filter(~((pl.col("event_occurred") == 1) & (pl.col("duration") > 1095)))
+        
+        # 4. Zielvariable (Target) für TabPFN definieren
         .with_columns(
             pl.when((pl.col("event_occurred") == 1) & (pl.col("duration") <= 365))
-            .then(0)      # Klasse 0: Früher Ausbruch (< 1 Jahr)
-            .when((pl.col("event_occurred") == 1) & (pl.col("duration") > 365))
-            .then(1)      # Klasse 1: Später Ausbruch (> 1 Jahr)
-            .otherwise(2) # Klasse 2: Zensiert / Gesund / Kein Event
+            .then(0)      # Klasse 0: Früher Ausbruch (<= 1 Jahr)
+            .when((pl.col("event_occurred") == 1) & (pl.col("duration") > 365) & (pl.col("duration") <= 1095))
+            .then(1)      # Klasse 1: Später Ausbruch (1 bis 3 Jahre)
+            .otherwise(2) # Klasse 2: Zensiert / Gesund / Kein Event im Beobachtungszeitraum
             .alias("target")
         )
     )
