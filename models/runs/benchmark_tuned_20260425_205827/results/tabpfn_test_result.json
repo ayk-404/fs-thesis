@@ -1,0 +1,12 @@
+{
+  "model": "TabPFN",
+  "best_seed": 42,
+  "val_f1": null,
+  "test_accuracy": 0.5269293593788459,
+  "test_f1_macro": 0.3545595906312744,
+  "test_roc_auc": 0.8075227304190756,
+  "test_f1_early": 0.2153869293825675,
+  "test_f1_late": 0.17633944624235887,
+  "test_f1_healthy": 0.6719523962688968,
+  "proba_path": "/Users/andrey/Repositories/fs-thesis/models/runs/benchmark_tuned_20260425_205827/results/tabpfn_test_result_proba.npy"
+}

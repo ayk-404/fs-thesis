@@ -5,6 +5,7 @@
 ## C
 ## D
 ## E
+[Exploring Fine-Tuning for TabFM](https://arxiv.org/abs/2601.09654)
 ## F
 [Frontier Reproductive-Health](https://www.frontiersin.org/journals/reproductive-health/articles/10.3389/frph.2021.756405/full)  
 ## G
@@ -32,7 +33,7 @@
 [TabPFN](https://github.com/PriorLabs/TabPFN)  
 [TabPFN Colab Example](https://colab.research.google.com/github/PriorLabs/TabPFN/blob/main/examples/notebooks/TabPFN_Demo_Local.ipynb)  
 [TabPFN Paper](https://www.nature.com/articles/s41586-024-08328-6)  
-[TabTune](https://arxiv.org/pdf/2511.02802)  
+[Tab Tune](https://arxiv.org/pdf/2511.02802) 
 ## U
 ## V
 ## W

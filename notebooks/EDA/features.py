@@ -26,4 +26,12 @@ from fs_thesis.preprocessing import preprocess_data, balance_data, get_X_y
 warnings.filterwarnings('ignore')
 
 df = load_final_data()
-print(df.head())
+#print(df.head())
+#print([f"'{col}'" for col in df.columns])
+# Polars syntax
+print(df.select('bmi').unique().sort('bmi').head())
+
+total = df.height
+nulls = df["bmi"].null_count()
+
+print(f"Total: {total}, Nulls: {nulls}")

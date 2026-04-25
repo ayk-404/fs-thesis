@@ -1,0 +1,12 @@
+{
+  "model": "TabICL",
+  "best_seed": 42,
+  "val_f1": null,
+  "test_accuracy": 0.5959589179029334,
+  "test_f1_macro": 0.38469657110577743,
+  "test_roc_auc": 0.8061328693690735,
+  "test_f1_early": 0.2302876480541455,
+  "test_f1_late": 0.18785642401878563,
+  "test_f1_healthy": 0.7359456412444011,
+  "proba_path": "/Users/andrey/Repositories/fs-thesis/models/runs/benchmark_tuned_20260425_205827/results/tabicl_test_result_proba.npy"
+}
