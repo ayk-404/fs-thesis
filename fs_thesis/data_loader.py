@@ -80,7 +80,9 @@ def load_event_data():
                     MIN(a.admittime) AS event_time
                    FROM hosp.diagnoses_icd d
                    JOIN hosp.admissions a ON d.hadm_id = a.hadm_id
-                   WHERE d.icd_code LIKE 'I50%' 
+                   WHERE d.icd_code LIKE 'I50%' -- Herzinsuffizienz ICD-10 Codes
+                   --WHERE d.icd_code LIKE 'I21%' -- Akuter Myokardinfarkt ICD-10 Codes
+                   --WHERE d.icd_code LIKE 'I25%' -- Chronische ischämische Herzkrankheit ICD-10 Codes
                    GROUP BY d.subject_id""")
     return df_event
 
