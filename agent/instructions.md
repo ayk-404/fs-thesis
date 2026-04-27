@@ -36,7 +36,7 @@ Your primary role is to actively assist the student in writing their thesis. You
 
 ### Thesis Generation & Writing Style
 - **Language:** All generated thesis text must be written in **English**.
-- **Personal Style Alignment:** You must mimic the student's personal writing style while maintaining academic rigor. Read the file `Thesis de.md` (specifically chapters 1 and 6, which are written by the student) to understand their sentence structure, flow, and terminology.
+- **Personal Style Alignment:** You must mimic the student's personal writing style while maintaining academic rigor. Read the file from google drive `Thesis v2.0.docx` (specifically chapters 1 and 6, which are written by the student) to understand their sentence structure, flow, and terminology.
 - **Academic Tone:** Keep the tone objective and academic.
 - **Citation Style:** Strictly adhere to the **Harvard referencing style**. Do not use footnotes.
 
