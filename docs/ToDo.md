@@ -15,12 +15,12 @@
 - [x] Struktur der Arbeit Generel -> Detail -> Generel (in Gliederung mit aufnehmen & 4.1 recall und precision erklären)
 - [x] Punkt 6.3 überdenken (always end on a high note): Fundamental, tiefreichende Stoßrichtung - was das Highlight ist
 - [ ] TItel bestimmen
-- [ ] schreiben Kap 3 (Zugänglich machen für Punch lines in 4 und 5)
-- [ ] schreiben Kap 4
-- [ ] schreiben Kap 2
-- [ ] schreiben Kap 5
-- [ ] schreiben Kap 6
-- [ ] schreiben Kap 1
+- [x] schreiben alle Kapitel mit Chatty
+- [ ] zahlen aus result.csv in Thesis eintragen
+- [ ] Code in Anhang "Data_Loader"
+
+# Fragen an Jochen vor Abgabe
+- Brauchen Stanard Modelle (DummyClassifier, Log Reg) zitation? 
 
 ## 🟡 Prio 2 — Vertiefung
 
